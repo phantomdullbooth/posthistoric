@@ -1,6 +1,9 @@
 {
   "name": "posthistoric",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.4.0"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -15,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/winslowdev/posthistoric/issues"
   },
-  "homepage": "https://github.com/winslowdev/posthistoric#readme"
+  "homepage": "https://github.com/winslowdev/posthistoric#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.6.9"
+  }
 }
