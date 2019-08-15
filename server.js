@@ -5,11 +5,12 @@ const express = require('express');
 const mongoose = require ('mongoose');
 const app = express();
 const db = mongoose.connection;
+const session = require('express-session');
 //___________________
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3008;
 
 
 // Database
@@ -20,7 +21,8 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 // Connect to Mongo
-mongoose.connect(PROJECT3_DB ,  { useNewUrlParser: true});
+mongoose.connect(PROJECT3_DB,  { useNewUrlParser: true});
+
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -44,7 +46,7 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //localhost:3000
 app.get('/' , (req, res) => {
   console.log("something");
-  res.send('Hello World!');
+//   res.send('Hello World!');
 });
 
 //___________________
