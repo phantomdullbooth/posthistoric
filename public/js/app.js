@@ -103,6 +103,7 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         url:'/stories'
       }).then(function(response){
         controller.stories = response.data;
+        controller.currentStoryIndex = 0;
       }, function(error){
         console.log(error);
       });
