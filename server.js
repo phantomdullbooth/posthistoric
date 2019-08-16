@@ -55,6 +55,18 @@ app.use('/stories', storyController);
 const sessionController = require('./controllers/sessions.js');
 app.use('/sessions', sessionController);
 
+// AUTHORIZATION ROUTE
+app.get('/app', (req, res) => {
+  if (req.session.currentUser){
+    res.json(req.session.currentUser)
+  } else {
+    res.status(401).json({
+      status: 401,
+      message: "Error. Could not find currentUser."
+    })
+  }
+});
+
 //___________________
 //Listener
 //___________________
