@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const storiesSchema = new mongoose.Schema({
   text: String,
   author: String,
-  date: {type : Date, default: Date.now} 
+  date: {type : Date, default: Date.now}
 });
 
-const Bookmarks = mongoose.model('Bookmarks', bookmarksSchema);
+const Stories = mongoose.model('Stories', storiesSchema);
 
-module.exports = Bookmarks;
+module.exports = Stories;
