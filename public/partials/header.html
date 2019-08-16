@@ -20,4 +20,9 @@
 
 </form>
 
-<span ng-if="currentUser">Welcome, {{currentUser.username}}.</span>
+<div ng-if="currentUser">
+  <button ng-click="auth.logout()">
+    Log out
+  </button>
+  <p>Welcome, {{currentUser.username}}.</p>
+</div>
