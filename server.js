@@ -40,11 +40,11 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // required for cookies/express-session
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}));
+// app.use(session({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
 //___________________
 // Routes
