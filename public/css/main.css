@@ -1,0 +1,22 @@
+* {
+    border: 1px solid gold;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #7AB5BE;
+}
+
+header {
+    height: 15vh;
+}
+
+main {
+    height: 65vh;
+}
+
+footer {
+    height: 20vh;
+}
