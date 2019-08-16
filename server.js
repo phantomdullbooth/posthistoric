@@ -43,11 +43,9 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //___________________
 // Routes
 //___________________
-//localhost:3000
-app.get('/' , (req, res) => {
-  console.log("something");
-//   res.send('Hello World!');
-});
+// USER CONTROLLER
+const userController = require('./controllers/users.js');
+app.use('/contributors', userController);
 
 //___________________
 //Listener
