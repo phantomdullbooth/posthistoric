@@ -49,29 +49,29 @@ app.use(session({
 //___________________
 // Routes
 //___________________
-// sessions (logging in and out)
-const sessionController = require('./controllers/sessions.js');
-app.use('/sessions', sessionController);
-
-// users (creating a new user)
-const userController = require('./controllers/users.js');
-app.use('/users', userController);
-
-// stories (CRUD routes for stories)
-const storyController = require('./controllers/stories.js');
-app.use('/stories', storyController);
-
-// app (checks authorization)
-app.get('/app', (req, res) => {
-  if (req.session.currentUser){
-    res.json(req.session.currentUser)
-  } else {
-    res.status(401).json({
-      status: 401,
-      message: 'User is not logged in.'
-    })
-  }
-});
+// // sessions (logging in and out)
+// const sessionController = require('./controllers/sessions.js');
+// app.use('/sessions', sessionController);
+//
+// // users (creating a new user)
+// const userController = require('./controllers/users.js');
+// app.use('/users', userController);
+//
+// // stories (CRUD routes for stories)
+// const storyController = require('./controllers/stories.js');
+// app.use('/stories', storyController);
+//
+// // app (checks authorization)
+// app.get('/app', (req, res) => {
+//   if (req.session.currentUser){
+//     res.json(req.session.currentUser)
+//   } else {
+//     res.status(401).json({
+//       status: 401,
+//       message: 'User is not logged in.'
+//     })
+//   }
+// });
 
 //___________________
 //Listener
