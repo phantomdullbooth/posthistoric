@@ -1,0 +1,46 @@
+/* * {
+    border: 1px solid gold;
+} */
+
+h2 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: 2rem;
+    /* margin: 20px; */
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin: 20px 0px 5px 5px;
+    letter-spacing: -1px;  
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #7AB5BE;
+    background: url('images/bg-wood-plant.jpg') no-repeat;
+    background-size: cover;
+    color: #484848;
+}
+
+header {
+    height: 15vh;
+}
+
+main {
+    height: 65vh;
+}
+
+footer {
+    height: 20vh;
+}

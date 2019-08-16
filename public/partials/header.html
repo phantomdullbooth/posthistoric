@@ -1,0 +1,43 @@
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+
+  <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
+  <a
+    href="#" ng-click="auth.toggleModal('signup')"
+    ng-if="!currentUser">
+    Sign Up
+  </a>
+  <a href="#" ng-click="auth.toggleModal('login')"
+    ng-if="!currentUser">
+    Log In
+  </a>
+
+  <!-- LOG OUT BUTTON FOR USERS -->
+  <a href="#" ng-click="auth.logout()" ng-if="currentUser">
+    Log out {{currentUser.username}}
+  </a>
+</nav>
+
+
+<form ng-if="auth.showSignup" ng-submit="auth.signup()">
+  <label for="Username">Username</label>
+  <input type="text" ng-model="auth.newUsername" placeholder="Username">
+
+  <label for="Password">Password</label>
+  <input type="password" ng-model="auth.newPassword" placeholder="Password">
+
+  <input type="submit" value="Sign Up">
+
+</form>
+
+<form ng-if="auth.showLogin" ng-submit="auth.login()">
+  <label for="Username">Username</label>
+  <input type="text" ng-model="auth.username" placeholder="Username">
+
+  <label for="Password">Password</label>
+  <input type="password" ng-model="auth.password" placeholder="Password">
+
+  <input type="submit" value="Log in">
+
+</form>
