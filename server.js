@@ -2,8 +2,8 @@
 //Dependencies
 //___________________
 const express = require('express');
-const app = express();
 const mongoose = require ('mongoose');
+const app = express();
 const db = mongoose.connection;
 const session = require('express-session');
 //___________________
@@ -33,45 +33,21 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //Middleware
 //___________________
 
-// use public folder for static assets
+//use public folder for static assets
 app.use(express.static('public'));
 
-// returns middleware that only parses JSON
-app.use(express.json());
-
-// required for cookies/express-session
-// app.use(session({
-//   secret: process.env.SECRET,
-//   resave: false,
-//   saveUninitialized: false
-// }));
+// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //___________________
 // Routes
 //___________________
-// // sessions (logging in and out)
-// const sessionController = require('./controllers/sessions.js');
-// app.use('/sessions', sessionController);
-//
-// // users (creating a new user)
-// const userController = require('./controllers/users.js');
-// app.use('/users', userController);
-//
-// // stories (CRUD routes for stories)
-// const storyController = require('./controllers/stories.js');
-// app.use('/stories', storyController);
-//
-// // app (checks authorization)
-// app.get('/app', (req, res) => {
-//   if (req.session.currentUser){
-//     res.json(req.session.currentUser)
-//   } else {
-//     res.status(401).json({
-//       status: 401,
-//       message: 'User is not logged in.'
-//     })
-//   }
-// });
+//localhost:3000
+app.get('/' , (req, res) => {
+  console.log("something");
+//   res.send('Hello World!');
+});
 
 //___________________
 //Listener
