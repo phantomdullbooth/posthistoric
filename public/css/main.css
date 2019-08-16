@@ -1,11 +1,12 @@
 * {
-    background-color: #7AB5BE;
+    border: 1px solid gold;
 }
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #7AB5BE;
 }
 
 header {
