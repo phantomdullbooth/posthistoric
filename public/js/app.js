@@ -103,6 +103,7 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         url:'/stories'
       }).then(function(response){
         controller.stories = response.data;
+        controller.currentStoryIndex = 0;
       }, function(error){
         console.log(error);
       });
@@ -191,7 +192,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
       controller.showLogin = false;
       controller.showSignup = false;
     }, function(error){
-      alert("ERROR: Something must have gone wrong on our end. Refresh the page and try again.")
+      alert("ERROR: Something went wrong. Either try a new username or refresh the page.")
     })
   };
 

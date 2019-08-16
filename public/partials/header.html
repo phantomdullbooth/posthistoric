@@ -1,8 +1,22 @@
 <nav>
   <a href="#">Home</a>
   <a href="#">About</a>
-  <a href="#" ng-click="auth.toggleModal('signup')">Sign Up</a>
-  <a href="#" ng-click="auth.toggleModal('login')">Log In</a>
+
+  <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
+  <a
+    href="#" ng-click="auth.toggleModal('signup')"
+    ng-if="!currentUser">
+    Sign Up
+  </a>
+  <a href="#" ng-click="auth.toggleModal('login')"
+    ng-if="!currentUser">
+    Log In
+  </a>
+
+  <!-- LOG OUT BUTTON FOR USERS -->
+  <a href="#" ng-click="auth.logout()" ng-if="currentUser">
+    Log out {{currentUser.username}}
+  </a>
 </nav>
 
 
@@ -27,10 +41,3 @@
   <input type="submit" value="Log in">
 
 </form>
-
-<div ng-if="currentUser">
-  <button ng-click="auth.logout()">
-    Log out
-  </button>
-  <p>Welcome, {{currentUser.username}}.</p>
-</div>
