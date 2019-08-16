@@ -47,6 +47,14 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 const userController = require('./controllers/users.js');
 app.use('/contributors', userController);
 
+// STORY CONTROLLER
+const storyController = require('./controllers/stories.js');
+app.use('/stories', storyController);
+
+// SESSION CONTROLLER
+const sessionController = require('./controllers/sessions.js');
+app.use('/sessions', sessionController);
+
 //___________________
 //Listener
 //___________________
