@@ -1,4 +1,4 @@
-# posthistoric
+# PostScript
 
 ###Addison Winslow Mays
 ###Alyssa Monera
