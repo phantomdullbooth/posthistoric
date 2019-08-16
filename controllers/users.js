@@ -21,7 +21,7 @@ users.get('/', (req, res) => {
 users.post('/', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
   User.create(req.body, (err, newUser)=> {
-    req.session.currentUser = newUser;
+    // req.session.currentUser = newUser;
     res.status(201).json({
       status: 201,
       message: 'User created.'
