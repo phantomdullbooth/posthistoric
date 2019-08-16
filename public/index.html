@@ -14,13 +14,13 @@
   <!-- //// SITE-WIDE CONTAINER //// -->
   <div ng-controller="Controller as xxxx">
 
-    {{ xxxx.goo }}
-
     <!-- //// NAVIGATION //// -->
     <header
       ng-controller="AuthController as auth"
       ng-include="'partials/header.html'">
     </header>
+
+    {{ xxxx.goo }}
 
     <!-- //// MAIN //// -->
     <main ng-include="'partials/body.html'">
