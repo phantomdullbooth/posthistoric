@@ -1,0 +1,23 @@
+<form ng-submit="auth.signup()">
+  <label for="Username">Username</label>
+  <input type="text" ng-model="auth.newUsername" placeholder="Username">
+
+  <label for="Password">Password</label>
+  <input type="password" ng-model="auth.newPassword" placeholder="Password">
+
+  <input type="submit" value="Sign Up">
+
+</form>
+
+<form ng-submit="auth.login()">
+  <label for="Username">Username</label>
+  <input type="text" ng-model="auth.username" placeholder="Username">
+
+  <label for="Password">Password</label>
+  <input type="password" ng-model="auth.password" placeholder="Password">
+
+  <input type="submit" value="Log in">
+
+</form>
+
+<span ng-if="currentUser">Welcome, {{currentUser.username}}.</span>

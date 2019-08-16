@@ -40,6 +40,13 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
+// creates session cookies necessary for logging in and out
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
 //___________________
 // Routes
 //___________________

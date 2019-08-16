@@ -126,6 +126,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
     }).then(function(response){
       controller.newUsername = null;
       controller.newPassword = null;
+      alert("Signup successful! Logging you in...")
       controller.startSession();
     }, function(error){
       alert("ERROR: You probably need to pick another username. Please try again.")
@@ -159,6 +160,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
       url: "/app"
     }).then(function(response){
       $rootScope.currentUser = response.data;
+      alert("Login success!")
     }, function(error){
       alert("ERROR: Something must have gone wrong on our end. Refresh the page and try again.")
     })
