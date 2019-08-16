@@ -1,5 +1,5 @@
 const app = angular.module('App', [])
 
-app.controller('Controller', ['$http', function(){
+app.controller('Controller', function(){
     this.goo = 'ber';
-}])
+})
