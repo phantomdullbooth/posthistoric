@@ -22,7 +22,7 @@ app.controller('ParentController', ['$http', '$rootScope', function($http, $root
 // =====================================================================
 // * ATTACHED TO: <div class="container"> tag
 // * Contains the main functionality for the app
-app.controller('Controller', function($http){
+app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope){
 
     // ==============
     // INITIAL VALUES
@@ -49,6 +49,7 @@ app.controller('Controller', function($http){
           date: this.date
         }
       }).then(function(){
+          controller.text = null;
           controller.getStories();
       });
     }
@@ -108,7 +109,7 @@ app.controller('Controller', function($http){
     };
 
     this.getStories();
-});
+}]);
 
 // =====================================================================
 //                        AUTHORIZATION CONTROLLER
