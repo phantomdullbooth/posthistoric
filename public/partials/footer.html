@@ -1,5 +1,19 @@
-<h2>Add To The Story!</h2>
-      <form ng-submit="ctrl.createStory()">
-        Your Sentence: <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
-        <input type="submit" value="Add!">
-      </form>
+
+  <div class="table-of-contents">
+    <h2>Table of contents:</h2>
+    <ul>
+      <li ng-repeat="story in ctrl.stories">
+        <a href="#" ng-click="ctrl.currentStoryIndex = $index">
+          {{$index + 1}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="add-story">
+    <h2>Add To The Story!</h2>
+    <form ng-submit="ctrl.createStory()">
+      Your Sentence: <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
+      <input type="submit" value="Add!">
+    </form>
+  </div>
