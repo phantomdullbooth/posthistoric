@@ -92,7 +92,7 @@ app.controller('Controller', function($http){
     };
 
     this.getStories();
-}]);
+});
 
 // =====================================================================
 //                        AUTHORIZATION CONTROLLER
