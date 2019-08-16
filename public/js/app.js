@@ -37,45 +37,61 @@ app.controller('Controller', function($http){
     // CREATE NEW STORY (POST)
 
   this.createStory = function(){
-    $http({
-      method:'POST',
-      url:'/stories',
-      data:{
-        text: this.text,
-        author: this.author,
-        date: this.date
-      }
-    }).then(function(){
-        controller.getStories();
-    });
+    if (!$rootScope.currentUser){
+      alert("You need to sign in to do that.");
+    } else {
+      $http({
+        method:'POST',
+        url:'/stories',
+        data:{
+          text: this.text,
+          author: $rootScope.currentUser.username,
+          date: this.date
+        }
+      }).then(function(){
+          controller.getStories();
+      });
+    }
   };
 
     // EDIT STORY (POST)
 
   this.editStory = function(story){
-    $http({
-      method:"PUT",
-      url: '/stories/' + story._id,
-      data: {
-        text: this.updatedText,
-        author: this.updatedAuthor,
-        date: this.updatedDate
-      }
-    }).then(function(){
-      controller.getStories();
-      controller.indexOfEditFormToShow = null;
-    });
+    if (!$rootScope.currentUser){
+      alert("You need to sign in to do that.")
+    } else if ($rootScope.currentUser.username !== story.author){
+      alert("You do not have permission to edit this story.");
+    } else {
+      $http({
+        method:"PUT",
+        url: '/stories/' + story._id,
+        data: {
+          text: this.updatedText,
+          author: this.updatedAuthor,
+          date: this.updatedDate
+        }
+      }).then(function(){
+        controller.getStories();
+        controller.indexOfEditFormToShow = null;
+      });
+    }
   };
 
     // DESTROY STORY (DELETE)
 
     this.deleteStory = function(story){
-    $http({
-      method: "DELETE",
-      url: '/stories/' + story._id
-    }).then(function(){
-        controller.getStories();
-    });
+      if (!$rootScope.currentUser){
+        alert("You need to sign in to do that.")
+      } else if ($rootScope.currentUser.username !== story.author){
+        alert("You do not have permission to remove this story.")
+      } else {
+        $http({
+          method: "DELETE",
+          url: '/stories/' + story._id
+        }).then(function(){
+            controller.getStories();
+        });
+      }
   };
 
     // SEE ALL STORIES (GET)
@@ -159,7 +175,6 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
       url: "/sessions"
     }).then(function(response){
       $rootScope.currentUser = null;
-      alert("Log out successful.")
     }, function(error){
       alert("ERROR: Something must have gone wrong on our end. Refresh the page and try again.")
     })
@@ -172,6 +187,8 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
       url: "/app"
     }).then(function(response){
       $rootScope.currentUser = response.data;
+      controller.showLogin = false;
+      controller.showSignup = false;
     }, function(error){
       alert("ERROR: Something must have gone wrong on our end. Refresh the page and try again.")
     })
