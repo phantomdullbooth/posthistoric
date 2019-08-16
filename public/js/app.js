@@ -191,7 +191,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
       controller.showLogin = false;
       controller.showSignup = false;
     }, function(error){
-      alert("ERROR: Something must have gone wrong on our end. Refresh the page and try again.")
+      alert("ERROR: Something went wrong. Either try a new username or refresh the page.")
     })
   };
 
