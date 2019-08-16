@@ -1,0 +1,22 @@
+header nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(57, 33, 9, 0.4);
+  padding: 0.7em;
+  font-size: 1.4em;
+  transition-duration: 1s;
+}
+
+header nav:hover{
+  background-color: rgba(57,33,9,0.8);
+}
+
+nav a:hover{
+  color: rgb(234, 179, 123);
+}
+
+header form{
+  display: block;
+  text-align: center;
+  margin: 1em auto;
+}
