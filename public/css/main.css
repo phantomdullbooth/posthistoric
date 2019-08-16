@@ -1,0 +1,21 @@
+* {
+    background-color: #7AB5BE;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    height: 15vh;
+}
+
+main {
+    height: 65vh;
+}
+
+footer {
+    height: 20vh;
+}
