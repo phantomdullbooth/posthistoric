@@ -40,6 +40,13 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
+// creates session cookies necessary for logging in and out
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
 //___________________
 // Routes
 //___________________
@@ -54,6 +61,18 @@ app.use('/stories', storyController);
 // SESSION CONTROLLER
 const sessionController = require('./controllers/sessions.js');
 app.use('/sessions', sessionController);
+
+// AUTHORIZATION ROUTE
+app.get('/app', (req, res) => {
+  if (req.session.currentUser){
+    res.json(req.session.currentUser)
+  } else {
+    res.status(401).json({
+      status: 401,
+      message: "Error. Could not find currentUser."
+    })
+  }
+});
 
 //___________________
 //Listener

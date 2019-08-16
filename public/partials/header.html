@@ -1,0 +1,36 @@
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#" ng-click="auth.toggleModal('signup')">Sign Up</a>
+  <a href="#" ng-click="auth.toggleModal('login')">Log In</a>
+</nav>
+
+
+<form ng-if="auth.showSignup" ng-submit="auth.signup()">
+  <label for="Username">Username</label>
+  <input type="text" ng-model="auth.newUsername" placeholder="Username">
+
+  <label for="Password">Password</label>
+  <input type="password" ng-model="auth.newPassword" placeholder="Password">
+
+  <input type="submit" value="Sign Up">
+
+</form>
+
+<form ng-if="auth.showLogin" ng-submit="auth.login()">
+  <label for="Username">Username</label>
+  <input type="text" ng-model="auth.username" placeholder="Username">
+
+  <label for="Password">Password</label>
+  <input type="password" ng-model="auth.password" placeholder="Password">
+
+  <input type="submit" value="Log in">
+
+</form>
+
+<div ng-if="currentUser">
+  <button ng-click="auth.logout()">
+    Log out
+  </button>
+  <p>Welcome, {{currentUser.username}}.</p>
+</div>
