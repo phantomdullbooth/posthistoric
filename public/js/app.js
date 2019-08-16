@@ -105,6 +105,8 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
   // INITIAL VALUES
   // ==============
   const controller = this;
+  this.showLogin = false;
+  this.showSignup = false;
   this.username = null;
   this.password = null;
   this.newUsername = null;
@@ -175,5 +177,23 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
     })
   };
 
+  // =====================
+  // APP-SPECIFIC METHODS
+  // =====================
+
+  this.toggleModal = function(modal){
+    switch (modal){
+      case "signup":
+        controller.showSignup = !controller.showSignup;
+        controller.showLogin = false;
+        break;
+      case "login":
+        controller.showLogin = !controller.showLogin;
+        controller.showSignup = false;
+        break;
+      default:
+        break;
+    }
+  };
 
 }]);

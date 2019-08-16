@@ -1,4 +1,12 @@
-<form ng-submit="auth.signup()">
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#" ng-click="auth.toggleModal('signup')">Sign Up</a>
+  <a href="#" ng-click="auth.toggleModal('login')">Log In</a>
+</nav>
+
+
+<form ng-if="auth.showSignup" ng-submit="auth.signup()">
   <label for="Username">Username</label>
   <input type="text" ng-model="auth.newUsername" placeholder="Username">
 
@@ -9,7 +17,7 @@
 
 </form>
 
-<form ng-submit="auth.login()">
+<form ng-if="auth.showLogin" ng-submit="auth.login()">
   <label for="Username">Username</label>
   <input type="text" ng-model="auth.username" placeholder="Username">
 
