@@ -102,7 +102,11 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         method:'GET',
         url:'/stories'
       }).then(function(response){
-        controller.stories = response.data;
+        controller.stories = response.data.sort((a, b) => {
+          if (a.date < b.date){return -1}
+          if (a.date > b.date){return 1}
+          else{return 0}
+        });
         controller.currentStoryIndex = 0;
       }, function(error){
         console.log(error);
