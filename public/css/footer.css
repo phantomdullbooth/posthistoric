@@ -17,3 +17,47 @@ footer ul{
   background-color: rgba(0,0,0,0.7);
   margin: 1em 3em;
 }
+
+.featherpen {
+  width: 2.5em;
+  height: 3em;
+}
+
+.add-story {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding-bottom: 2em; */
+  margin: 0;
+}
+
+.footerHeader {
+  font-size: 1.7em;
+  padding-right: 0.5em;
+  font-family: "Merriweather", serif;
+  color: #199813;
+  text-transform: lowercase;
+  font-weight: bolder;
+}
+
+.addButton {
+  background-color: #199813;
+  color: ghostwhite;
+  border-radius: 1em;
+  height: 2em;
+  width: 5em;
+  font-family: "Merriweather", serif;
+  text-transform: lowercase;
+  font-weight: bolder;
+}
+
+.table-of-contents {
+  margin: 0;
+}
+
+.sentenceInput {
+  height: 2em;
+  width: 15em;
+  border-radius: 0.5em;
+}
