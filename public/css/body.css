@@ -96,6 +96,10 @@ align-items: center;
     height: 80%;
 }
 
+.text-area h3{
+  font-size: 1.4em;
+}
+
 .green {
     color: #199813;
 }
