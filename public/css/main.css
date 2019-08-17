@@ -13,7 +13,7 @@ h2 {
 h3 {
     font-family: "Merriweather", serif;
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 300%;
     margin: 20px 0px 5px 5px;
     letter-spacing: -1px;  
 }

@@ -50,6 +50,25 @@ app.use(session({
 //___________________
 // Routes
 //___________________
+// SEED
+const seed = require('./models/seed.js');
+const User = require('./models/users.js');
+const Story = require('./models/stories.js');
+app.get('/seed', (req, res) => {
+  for (let user of seed.userArray){
+    User.create(user, (err, newUser)=> {
+      console.log(`${user.username} has been created.`);
+    })
+  }
+
+  for (let story of seed.storyArray){
+    Story.create(story, (err, newStory)=>{
+      console.log(`${story.text}`);
+    })
+  }
+  res.redirect('/');
+});
+
 // USER CONTROLLER
 const userController = require('./controllers/users.js');
 app.use('/contributors', userController);
