@@ -1,48 +1,46 @@
-<div id="book-outline">
-    <div id="left">
-        <!-- LEFT FAKE PAGES -->
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <!-- END LEFT FAKE PAGES -->
+<div id="book">
+    <div id="book-left">
 
-        <div id="left-main">
+        <!-- LEFT SIDE FAKE LINES AND CLICKABLE AREA -->
+        <div class="fake-pages" ng-click="">
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+        </div>
+
+        <div id="left-page">
             <div class="text-area">
-              <h3>{{ctrl.stories[ctrl.currentStoryIndex].text}}</h3>
+                <h2>by 
+                    <span class="green">{{ ctrl.stories[ctrl.currentStoryIndex].author }}</span></h2>
+                <h3>{{ ctrl.stories[ctrl.currentStoryIndex].text }}</h3>
+                <h2>{{ ctrl.currentStoryIndex+1 }}</h2>
             </div>
         </div>
     </div>
 
-    <!-- ///// -->
-    <!-- SPINE DIVIDER ///// SPINE DIVIDER ///// SPINE DIVIDER ///// -->
     <div id="spine"></div>
-    <!-- SPINE DIVIDER ///// SPINE DIVIDER ///// SPINE DIVIDER ///// -->
-    <!-- ///// -->
 
-    <div id="right">
-        <div id="right-main">
+    <div id="book-right">
+        <div id="right-page">
             <div class="text-area">
-                <h3>{{ctrl.stories[ctrl.currentStoryIndex+1].text}}</h3>
+                <h2>by
+                    <span class="green">{{ ctrl.stories[ctrl.currentStoryIndex+1].author }}</span></h2>
+                <h3>{{ ctrl.stories[ctrl.currentStoryIndex+1].text }}</h3>
+                <h2>{{ ctrl.currentStoryIndex+2 }}</h2>
             </div>
         </div>
-        <!-- RIGHT FAKE PAGES -->
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <div class="page-line"></div>
-        <!-- END RIGHT FAKE PAGES -->
+
+        <!-- RIGHT SIDE FAKE LINES AND CLICKABLE AREA -->
+        <div class="fake-pages" ng-click="">
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+        </div>
     </div>
 </div>

@@ -3,8 +3,11 @@
     <h2>Table of contents:</h2>
     <ul>
       <li ng-repeat="story in ctrl.stories">
-        <a href="#" ng-click="ctrl.currentStoryIndex = $index">
-          {{$index + 1}}
+        <a
+          ng-if="$index % 2 === 0"
+          href="#"
+          ng-click="ctrl.currentStoryIndex = $index">
+          {{$index + 1}} - {{$index + 2}}
         </a>
       </li>
     </ul>
