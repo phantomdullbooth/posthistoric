@@ -1,3 +1,12 @@
+<div class="add-story">
+  <img class="featherpen" src="css/images/featherpen.png" alt="featherpen">
+  <h2 class="footerHeader">Add To The Story</h2>
+  <form ng-submit="ctrl.createStory()">
+    <input class="sentenceInput" type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
+    <input class="addButton" type="submit" value="Add">
+  </form>
+</div>
+
 
   <div class="table-of-contents">
     <h2>Table of contents:</h2>
@@ -11,12 +20,4 @@
         </a>
       </li>
     </ul>
-  </div>
-
-  <div class="add-story">
-    <h2>Add To The Story!</h2>
-    <form ng-submit="ctrl.createStory()">
-      Your Sentence: <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
-      <input type="submit" value="Add!">
-    </form>
   </div>

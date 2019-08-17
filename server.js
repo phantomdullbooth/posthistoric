@@ -21,7 +21,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 // Connect to Mongo
-mongoose.connect(PROJECT3_DB,  { useNewUrlParser: true});
+mongoose.connect("mongodb+srv://aegean:y7t9chwCufTlYVt3@sei-5vlyl.mongodb.net/test?retryWrites=true&w=majority",  { useNewUrlParser: true});
 
 
 // Error / success

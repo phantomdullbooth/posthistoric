@@ -39,6 +39,8 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
   this.createStory = function(){
     if (!$rootScope.currentUser){
       alert("You need to sign in to do that.");
+    } else if (controller.text.length > 200){
+      alert("Brevity is the soul of wit. Please limit your submission to less than 200 characters.")
     } else {
       $http({
         method:'POST',
