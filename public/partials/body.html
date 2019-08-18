@@ -15,7 +15,7 @@
             <div class="text-area">
                 <h2>by
                     <span class="green">{{ ctrl.stories[ctrl.currentStoryIndex].author }}</span></h2>
-                <h3 ng-dblclick="showInfo = ! showInfo">{{ ctrl.stories[ctrl.currentStoryIndex].text }}</h3>
+                <h3 ng-dblclick="showInfo = !showInfo">{{ ctrl.stories[ctrl.currentStoryIndex].text }}</h3>
 
                   <div class="moreDetails" ng-show="showInfo">
                       <h4>
@@ -39,12 +39,12 @@
             <div class="text-area">
                 <h2>by
                     <span class="green">{{ ctrl.stories[ctrl.currentStoryIndex+1].author }}</span></h2>
-                <h3 ng-dblclick="showInfo = ! showInfo">{{ ctrl.stories[ctrl.currentStoryIndex+1].text }}</h3>
+                <h3 ng-dblclick="showInfo = !showInfo">{{ ctrl.stories[ctrl.currentStoryIndex+1].text }}</h3>
                 <div class="moreDetails" ng-show="showInfo">
                     <h4>
                         Edit Sentence
                     </h4>
-                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);">
+                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);">
                       <input type="text" ng-model="ctrl.updatedText" placeholder="{{ ctrl.stories[ctrl.currentStoryIndex].text }}">
                       <input type="submit" value="Update">
                     </form>
