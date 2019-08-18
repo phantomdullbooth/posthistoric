@@ -61,7 +61,7 @@ align-items: center;
     align-items: center;
     width: 50%;
     height: 100%;
-    background-color: #e3e1dd;
+    background-color: #b18224;
 }
 
 #book-left {
@@ -86,12 +86,12 @@ align-items: center;
 
 #left-page {
     border-radius: 0px 5% 5% 0px;
-    box-shadow: -20px 0px 40px 15px #1f1f1fa1;
+    box-shadow: -20px 0px 40px -5px #1f1f1fa1;
 }
 
 #right-page {
     border-radius: 5% 0px 0px 5%;
-    box-shadow: 20px 0px 40px 15px #1f1f1fa1;
+    box-shadow: 20px 0px 40px -5px #1f1f1fa1;
 }
 
 .text-area {
