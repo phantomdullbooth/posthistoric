@@ -72,8 +72,8 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
           text: this.updatedText
         }
       }).then(function(){
-        controller.getStories();
         controller.indexOfEditFormToShow = null;
+        controller.getStories();
       });
     }
   };
@@ -90,6 +90,7 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
           method: "DELETE",
           url: '/stories/' + story._id
         }).then(function(){
+            controller.indexOfEditFormToShow = null;
             controller.getStories();
         });
       }
