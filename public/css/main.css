@@ -1,6 +1,21 @@
-/* * {
-    border: 1px solid gold;
-} */
+:root {
+    --blue: #005fcc;
+    --green: #199813;
+    --yellow: #edae01;
+    --black: #191919;
+}
+
+header {
+    height: 15vh;
+}
+
+main {
+    height: 65vh;
+}
+
+footer {
+    height: 20vh;
+}
 
 /* TEXT & FONT */
 h2, h3, a {
@@ -35,20 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #7AB5BE;
     background: url('images/bg-wood-plant.jpg') no-repeat;
     background-size: cover;
-    color: #484848;
 }
 
-header {
-    height: 15vh;
-}
-
-main {
-    height: 65vh;
-}
-
-footer {
-    height: 20vh;
-}
