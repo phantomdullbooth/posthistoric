@@ -32,7 +32,14 @@ align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    cursor: pointer;
+}
+
+.next-page {
+    cursor: e-resize;
+}
+
+.previous-page {
+    cursor: w-resize;
 }
 
 .fake-line {
