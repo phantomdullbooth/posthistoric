@@ -36,24 +36,25 @@
                     <h6 class="button bg-black">Editing Sentence</h6>
 
                     <!-- EDIT FORM -->
-                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);" class="book-form">
+                    <form id="left-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);" class="book-form">
 
                         <input type="text" ng-model="ctrl.updatedText"
                             ng-value="ctrl.stories[ctrl.currentStoryIndex].text">
-
-                        <!-- BUTTON GROUPING -->
-                        <div class="button-group">
-                            <!-- UPDATE BUTTON -->
-                            <input type="submit" class="button bg-green" value="Update">
-                            <!-- DELETE BUTTON -->
-                            <button class="button bg-blue"
-                                ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
-                            <!-- HIDE FORM BUTTON -->
-                            <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
-                                Hide edit form
-                            </button>
-                        </div>
                     </form>
+
+                    <!-- BUTTON GROUPING -->
+                    <div class="button-group">
+                        <!-- UPDATE BUTTON -->
+                        <input form="left-form" type="submit" class="button bg-green" value="Update">
+                        <!-- DELETE BUTTON -->
+                        <button class="button bg-blue"
+                            ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
+                        <!-- HIDE FORM BUTTON -->
+                        <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                            Hide edit form
+                        </button>
+                    </div>
+
                 </div>
 
                 <!-- PAGE NUMBER -->
@@ -89,24 +90,25 @@
                     <h6 class="button bg-black">Editing Sentence</h6>
 
                     <!-- EDIT FORM -->
-                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);" class="book-form">
+                    <form id="right-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);" class="book-form">
                         <input type="text" ng-model="ctrl.updatedText"
                             ng-value=" ctrl.stories[ctrl.currentStoryIndex+1].text">
-
-                        <div class="button-group">
-                            <input type="submit" class="button bg-green" value="Update">
-                            <!-- HIDE FORM BUTTON -->
-                            <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
-                                Hide Edit Form
-                            </button>
-                            <!-- DELETE BUTTON -->
-                            <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])"
-                                class="button bg-blue">
-                                Delete
-                            </button>
-                            
-                        </div>
                     </form>
+
+                    <!-- BUTTON GROUPING -->
+                    <div class="button-group">
+                        <!-- UPDATE BUTTON -->
+                        <input form="right-form" type="submit" class="button bg-green" value="Update">
+                        <!-- HIDE FORM BUTTON -->
+                        <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                            Hide Edit Form
+                        </button>
+                        <!-- DELETE BUTTON -->
+                        <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])"
+                            class="button bg-blue">
+                            Delete
+                        </button>
+                    </div>
 
                 </div>
 
