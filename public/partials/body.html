@@ -1,57 +1,60 @@
 <div id="book">
+    <!-- LEFT SIDE OF BOOK -->
     <div id="book-left">
 
-        <!-- LEFT SIDE FAKE LINES AND CLICKABLE AREA -->
-            <div class="fake-pages previous-page"
-            ng-if="ctrl.currentStoryIndex >= 1"
-            ng-click="ctrl.currentStoryIndex = ctrl.currentStoryIndex-2"
-                title="previous page">
+        <!-- LEFT SIDE FAKE PAGES & CLICK AREA -->
+        <div class="fake-pages previous-page" ng-if="ctrl.currentStoryIndex >= 1"
+            ng-click="ctrl.currentStoryIndex = ctrl.currentStoryIndex-2" title="previous page">
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
-    </div>
+        </div>
 
+        <!-- LEFT MAIN PAGE -->
         <div id="left-page">
+            <!-- LEFT AREA WITH AUTHOR, STORY TEXT, EDIT FORM, PAGE NUMBER -->
             <div class="text-area">
 
-              <!-- AUTHOR TAG -->
+                <!-- AUTHOR TAG -->
                 <h2>by
                     <span class="green">
-                      {{ ctrl.stories[ctrl.currentStoryIndex].author }}
+                        {{ ctrl.stories[ctrl.currentStoryIndex].author }}
                     </span>
                 </h2>
 
                 <!-- TEXT OF STORY -->
                 <h3 ng-dblclick="ctrl.indexOfEditFormToShow = $index">
-                  {{ ctrl.stories[ctrl.currentStoryIndex].text }}
+                    {{ ctrl.stories[ctrl.currentStoryIndex].text }}
                 </h3>
 
                 <!-- EDIT SECTION -->
-                  <div ng-if="currentUser.username === ctrl.stories[ctrl.currentStoryIndex].author" class="moreDetails" ng-show="ctrl.indexOfEditFormToShow === $index">
-                      <h4>
-                          Edit Sentence
-                      </h4>
+                <div ng-if="currentUser.username === ctrl.stories[ctrl.currentStoryIndex].author" class="moreDetails"
+                    ng-show="ctrl.indexOfEditFormToShow === $index">
+                    <h6 class="button bg-black">Editing Sentence</h6>
 
-                      <!-- EDIT FORM -->
-                      <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);">
+                    <!-- EDIT FORM -->
+                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);" class="book-form">
 
-                        <input type="text" ng-model="ctrl.updatedText" ng-value="ctrl.stories[ctrl.currentStoryIndex].text">
+                        <input type="text" ng-model="ctrl.updatedText"
+                            ng-value="ctrl.stories[ctrl.currentStoryIndex].text">
 
-                        <input type="submit" value="Update">
-                      </form>
-
-                      <!-- DELETE BUTTON -->
-                      <button class="button" ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
-
-                      <!-- HIDE FORM BUTTON -->
-                      <button class="button" ng-click="ctrl.indexOfEditFormToShow = null">
-                        Hide edit form
-                      </button>
-
-                    </div>
+                        <!-- BUTTON GROUPING -->
+                        <div class="button-group">
+                            <!-- UPDATE BUTTON -->
+                            <input type="submit" class="button bg-green" value="Update">
+                            <!-- DELETE BUTTON -->
+                            <button class="button bg-blue"
+                                ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
+                            <!-- HIDE FORM BUTTON -->
+                            <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                                Hide edit form
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- PAGE NUMBER -->
                 <h2>{{ ctrl.currentStoryIndex+1 }}</h2>
@@ -61,46 +64,50 @@
 
     <div id="spine"></div>
 
-    <!-- ///// RIGHT PAGE ///// -->
+    <!-- RIGHT SIDE OF BOOK -->
     <div id="book-right">
+        <!-- RIGHT MAIN PAGE -->
         <div id="right-page">
+            <!-- RIGHT AREA WITH AUTHOR, STORY TEXT, EDIT FORM, PAGE NUMBER -->
             <div class="text-area">
 
-              <!-- AUTHOR TAG -->
+                <!-- AUTHOR TAG -->
                 <h2>by
                     <span class="green">
-                      {{ ctrl.stories[ctrl.currentStoryIndex+1].author }}
+                        {{ ctrl.stories[ctrl.currentStoryIndex+1].author }}
                     </span>
                 </h2>
 
                 <!-- TEXT OF STORY -->
                 <h3 ng-dblclick="ctrl.indexOfEditFormToShow = $index+1">
-                  {{ ctrl.stories[ctrl.currentStoryIndex+1].text }}
+                    {{ ctrl.stories[ctrl.currentStoryIndex+1].text }}
                 </h3>
 
                 <!-- EDIT SECTION -->
-                <div ng-if="currentUser.username === ctrl.stories[ctrl.currentStoryIndex+1].author" class="moreDetails" ng-show="ctrl.indexOfEditFormToShow === $index+1">
-                    <h4>
-                        Edit Sentence
-                    </h4>
+                <div ng-if="currentUser.username === ctrl.stories[ctrl.currentStoryIndex+1].author" class="moreDetails"
+                    ng-show="ctrl.indexOfEditFormToShow === $index+1">
+                    <h6 class="button bg-black">Editing Sentence</h6>
 
                     <!-- EDIT FORM -->
-                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);">
-                      <input type="text" ng-model="ctrl.updatedText" ng-value=" ctrl.stories[ctrl.currentStoryIndex+1].text">
-                      <input type="submit" value="Update">
+                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);" class="book-form">
+                        <input type="text" ng-model="ctrl.updatedText"
+                            ng-value=" ctrl.stories[ctrl.currentStoryIndex+1].text">
+
+                        <div class="button-group">
+                            <input type="submit" class="button bg-green" value="Update">
+                            <!-- HIDE FORM BUTTON -->
+                            <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                                Hide Edit Form
+                            </button>
+                            <!-- DELETE BUTTON -->
+                            <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])"
+                                class="button bg-blue">
+                                Delete
+                            </button>
+                        </div>
                     </form>
 
-                    <!-- DELETE BUTTON -->
-                    <button class="button" ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])">
-                      Delete
-                    </button>
-
-                    <!-- HIDE FORM BUTTON -->
-                    <button class="button" ng-click="ctrl.indexOfEditFormToShow = null">
-                      Hide edit form
-                    </button>
-
-                  </div>
+                </div>
 
                 <!-- PAGE NUMBER -->
                 <h2>{{ ctrl.currentStoryIndex+2 }}</h2>
@@ -108,17 +115,15 @@
             </div>
         </div>
 
-            <!-- RIGHT SIDE FAKE LINES AND CLICKABLE AREA -->
-                <div class="fake-pages next-page"
-                    ng-if="ctrl.currentStoryIndex < ctrl.stories.length-2"
-                    ng-click="ctrl.currentStoryIndex = ctrl.currentStoryIndex+2"
-                    title="next page">
-                <div class="fake-line"></div>
-                <div class="fake-line"></div>
-                <div class="fake-line"></div>
-                <div class="fake-line"></div>
-                <div class="fake-line"></div>
-                <div class="fake-line"></div>
+        <!-- RIGHT SIDE FAKE PAGES & CLICK AREA -->
+        <div class="fake-pages next-page" ng-if="ctrl.currentStoryIndex < ctrl.stories.length-2"
+            ng-click="ctrl.currentStoryIndex = ctrl.currentStoryIndex+2" title="next page">
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
+            <div class="fake-line"></div>
         </div>
     </div>
 </div>
