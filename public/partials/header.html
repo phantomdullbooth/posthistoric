@@ -1,5 +1,5 @@
 <nav>
-  <a href="#">Home</a>
+  <a href="/">Home</a>
   <a href="#">About</a>
 
   <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
@@ -17,6 +17,11 @@
   <a href="#" ng-click="auth.logout()" ng-if="currentUser">
     Log out {{currentUser.username}}
   </a>
+
+  <a href="#" ng-click="auth.toggleModal('chapters')">
+    Chapters
+  </a>
+
 </nav>
 
 
@@ -41,3 +46,19 @@
   <input type="submit" value="Log in">
 
 </form>
+
+<div ng-if="auth.showChapters" class="chapter-list my-modal">
+
+  <div class="modal-text">
+
+    <ul>
+      <li
+        ng-repeat="chapter in ctrl.chapters"
+        ng-click="ctrl.currentChapterIndex = $index">
+        {{chapter.title}}
+      </li>
+    </ul>
+
+  </div>
+
+</div>

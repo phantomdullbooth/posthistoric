@@ -30,9 +30,9 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
     const controller = this;
     this.indexOfEditFormToShow = 0;
 
-    // ==============
-    // RESTFUL ROUTES
-    // ==============
+    // ======================
+    // RESTFUL ROUTES: STORY
+    // ======================
 
     // CREATE NEW STORY (POST)
 
@@ -115,7 +115,62 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
       });
     };
 
+    // // ======================
+    // // RESTFUL ROUTES: CHAPTER
+    // // ======================
+    //
+    // // CREATE NEW CHAPTER (POST)
+    // this.createChapter = function(){
+    //   $http({
+    //     method: 'POST',
+    //     url: '/chapters',
+    //     data: {title: controller.title}
+    //   }).then(function(response){
+    //     controller.chapters.unshift(response.data);
+    //     console.log(controller.chapters);
+    //   }, function(error){
+    //     console.log(error);
+    //   })
+    // };
+    //
+    // // UPDATE
+    //
+    // // DESTROY
+    //
+    // // SEE ONE CHAPTER (GET)
+    // this.findChapter = function(chapter){
+    //   $http({
+    //     method: 'GET',
+    //     url: '/chapters/' + chapter._id
+    //   }).then(function(response){
+    //     controller.currentStories = response.data.stories;
+    //     console.log(controller.currentStories);
+    //   })
+    // };
+    //
+    // // SEE ALL CHAPTERS (GET)
+    // this.getChapters = function(){
+    //   $http({
+    //     method: 'GET',
+    //     url: '/chapters'
+    //   }).then(function(response){
+    //     controller.chapters = response.data.sort((a, b) => {
+    //       if (a.date < b.date){return -1}
+    //       if (a.date > b.date){return 1}
+    //       else{return 0}
+    //     });
+    //     controller.currentChapterIndex = 0;
+    //   }, function(error){
+    //     console.log(error);
+    //   })
+    // };
+
+    // ======================
+    //      ON PAGE LOAD
+    // ======================
     this.getStories();
+    // this.getChapters();
+
 }]);
 
 // =====================================================================
@@ -131,6 +186,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
   const controller = this;
   this.showLogin = false;
   this.showSignup = false;
+  this.showChapters = false;
   this.username = null;
   this.password = null;
   this.newUsername = null;
@@ -215,6 +271,9 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
       case "login":
         controller.showLogin = !controller.showLogin;
         controller.showSignup = false;
+        break;
+      case "chapters":
+        controller.showChapters = !controller.showChapters;
         break;
       default:
         break;
