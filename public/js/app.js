@@ -69,9 +69,7 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         method:"PUT",
         url: '/stories/' + story._id,
         data: {
-          text: this.updatedText,
-          author: this.updatedAuthor,
-          date: this.updatedDate
+          text: this.updatedText
         }
       }).then(function(){
         controller.getStories();
