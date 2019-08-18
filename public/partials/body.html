@@ -2,16 +2,18 @@
     <div id="book-left">
 
         <!-- LEFT SIDE FAKE LINES AND CLICKABLE AREA -->
-        <div class="fake-pages" ng-click="">
+            <div class="fake-pages"
+            ng-if="ctrl.currentStoryIndex >= 1"
+            ng-click="ctrl.currentStoryIndex = ctrl.currentStoryIndex-2"
+                title="previous page">
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
             <div class="fake-line"></div>
-        </div>
+    </div>
 
-        <!-- ///// LEFT PAGE ///// -->
         <div id="left-page">
             <div class="text-area">
 
@@ -105,15 +107,18 @@
 
             </div>
         </div>
-
-        <!-- RIGHT SIDE FAKE LINES AND CLICKABLE AREA -->
-        <div class="fake-pages" ng-click="">
-            <div class="fake-line"></div>
-            <div class="fake-line"></div>
-            <div class="fake-line"></div>
-            <div class="fake-line"></div>
-            <div class="fake-line"></div>
-            <div class="fake-line"></div>
+        <!-- ctrl.stories[ctrl.currentStoryIndex+1].text -->
+            <!-- RIGHT SIDE FAKE LINES AND CLICKABLE AREA -->
+                <div class="fake-pages"
+                    ng-if="ctrl.currentStoryIndex < ctrl.stories.length-2"
+                    ng-click="ctrl.currentStoryIndex = ctrl.currentStoryIndex+2"
+                    title="next page">
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
+                <div class="fake-line"></div>
         </div>
     </div>
 </div>
