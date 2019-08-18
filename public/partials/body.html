@@ -13,9 +13,20 @@
 
         <div id="left-page">
             <div class="text-area">
-                <h2>by 
+                <h2>by
                     <span class="green">{{ ctrl.stories[ctrl.currentStoryIndex].author }}</span></h2>
-                <h3>{{ ctrl.stories[ctrl.currentStoryIndex].text }}</h3>
+                <h3 ng-dblclick="showInfo = ! showInfo">{{ ctrl.stories[ctrl.currentStoryIndex].text }}</h3>
+
+                  <div class="moreDetails" ng-show="showInfo">
+                      <h4>
+                          Edit Sentence
+                      </h4>
+                      <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);">
+                        <input type="text" ng-model="ctrl.updatedText" placeholder="{{ ctrl.stories[ctrl.currentStoryIndex].text }}">
+                        <input type="submit" value="Update">
+                      </form>
+                      <button class="button" ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
+                    </div>
                 <h2>{{ ctrl.currentStoryIndex+1 }}</h2>
             </div>
         </div>
@@ -28,7 +39,17 @@
             <div class="text-area">
                 <h2>by
                     <span class="green">{{ ctrl.stories[ctrl.currentStoryIndex+1].author }}</span></h2>
-                <h3>{{ ctrl.stories[ctrl.currentStoryIndex+1].text }}</h3>
+                <h3 ng-dblclick="showInfo = ! showInfo">{{ ctrl.stories[ctrl.currentStoryIndex+1].text }}</h3>
+                <div class="moreDetails" ng-show="showInfo">
+                    <h4>
+                        Edit Sentence
+                    </h4>
+                    <form ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);">
+                      <input type="text" ng-model="ctrl.updatedText" placeholder="{{ ctrl.stories[ctrl.currentStoryIndex].text }}">
+                      <input type="submit" value="Update">
+                    </form>
+                    <button class="button" ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
+                  </div>
                 <h2>{{ ctrl.currentStoryIndex+2 }}</h2>
             </div>
         </div>
