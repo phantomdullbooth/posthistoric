@@ -1,6 +1,6 @@
 <nav>
-  <a href="#">Home</a>
-  <a href="#">About</a>
+  <a href="#" ng-click="showAbout = false">Home</a>
+  <a href="#" ng-click="showAbout = !showAbout">About</a>
 
   <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
   <a
@@ -41,3 +41,6 @@
   <input type="submit" value="Log in">
 
 </form>
+
+<div ng-show="showAbout" ng-include="'partials/about.html'"
+</div>

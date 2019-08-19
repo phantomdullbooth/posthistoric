@@ -14,8 +14,11 @@
     <link rel="stylesheet" type="text/css" href="css/body.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
 </head>
+
+
 <!-- //// BODY //// -->
 <body ng-controller="ParentController as parent">
+  <div ng-include="ctrl.includePath"></div>
 
   <!-- //// SITE-WIDE CONTAINER //// -->
   <div ng-controller="Controller as ctrl">
@@ -27,6 +30,11 @@
     </header>
 
     <!-- //// MAIN //// -->
+
+    <!-- // ABOUT SECTION *toggles on and off// -->
+    <div class="aboutSection" ng-controller="Controller as ctrl" ng-include="ctrl.includePath"></div>
+    <!-- end of about -->
+
     <main ng-include="'partials/body.html'">
     </main>
 
