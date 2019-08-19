@@ -49,14 +49,33 @@
 
 </form>
 
+<!-- CHAPTER LIST MODAL -->
 <div ng-if="auth.showChapters" class="chapter-list my-modal">
 
   <div class="modal-text">
     <ul>
-      <li
-        ng-repeat="chapter in ctrl.chapters"
-        ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')">
+
+      <!-- CHAPTER TITLE -->
+      <li ng-repeat="chapter in ctrl.chapters">
         {{chapter}}
+
+        <button ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')">
+          Switch to this chapter
+        </button>
+        <!-- EDIT AND DELETE BUTTONS -->
+        <div ng-if="currentUser.username === 'ahlisa' || currentUser.username === 'addison' || currentUser.username === 'aegean'" >
+          <button ng-click="ctrl.indexOfChapEditToShow = $index">
+            Update title
+          </button>
+
+          <button ng-click="ctrl.deleteChapter(chapter)">
+            Delete chapter
+          </button>
+        </div>
+
+        <form ng-if="ctrl.indexOfChapEditToShow === $index" ng-submit="ctrl.updateChapterTitle(chapter)">
+          <input type="submit" value="Update title">
+        </form>
       </li>
     </ul>
 
