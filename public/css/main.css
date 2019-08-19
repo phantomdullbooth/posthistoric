@@ -16,7 +16,7 @@
 }
 
 .bg-green {
-   background-color: var(--green); 
+   background-color: var(--green);
 }
 
 .bg-gold {
@@ -84,7 +84,7 @@ body {
 
 /* == ABOUT SPECIFICS == */
 .aboutSection {
-  height: 90vh;
+  height: 100vh;
   background-color: white;
   padding: 1em;
   position: absolute;
