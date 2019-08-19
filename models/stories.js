@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const storiesSchema = new mongoose.Schema({
   text: String,
   author: String,
+  chapter: String,
   date: {type : Date, default: Date.now}
 });
 
