@@ -32,6 +32,13 @@ router.put('/:id', (req, res) => {
   });
 });
 
+/// EDIT A CHAPTER ///
+router.put('/chapter/:chapter', (req, res) => {
+  Stories.updateMany({chapter: req.params.chapter}, {$set: {chapter: req.body.chapter}}, {multi: true}, (err, updatedStories)=> {
+    res.json(updatedStories)
+  })
+});
+
 /// CREATE NEW STORY ///
 router.post('/', (req, res) => {
   Stories.create(req.body, (err, createdStory) => {

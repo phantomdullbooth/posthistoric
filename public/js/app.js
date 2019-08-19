@@ -123,26 +123,8 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         // Stores ALL stories in an array for later
         controller.allStories = response.data;
 
-        // Sets a random chapter to start with
-        controller.chapter = response.data[0].chapter;
-        controller.stories = [];
-
-        // Gets all the stories related to that chapter
-        for (let story of response.data){
-          if (story.chapter === controller.chapter){
-            controller.stories.push(story)
-          }
-        }
-
-        // Sorts those stories by submission date
-        controller.stories.sort((a, b) => {
-          if (a.date < b.date){return -1}
-          if (a.date > b.date){return 1}
-          else{return 0}
-        });
-
-        // Starts on page 1 and retrieves all the chapters for the chapter index
-        controller.currentStoryIndex = 0;
+        // Sets a random chapter to start with, then stores all chapters
+        controller.changeChapter(response.data[0].chapter)
         controller.getChapters();
 
       }, function(error){
@@ -167,29 +149,25 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
       }
     };
 
+    // EDIT CHAPTER
+    this.editChapter = function(chapter){
+      $http({
+        method: 'PUT',
+        url: '/stories/chapter/' + chapter,
+        data: {chapter: controller.updatedChapter}
+      }).then(function(response){
+        controller.getStories();
+        controller.indexOfChapEditToShow = null;
+      })
+    };
+
     // DELETE CHAPTER
     this.deleteChapter = function(chapter){
       $http({
         method: 'DELETE',
         url: '/stories/chapter/' + chapter
       }).then(function(response){
-
-        // Remove chapter from chapter index
-        let removedChapterIndex = controller.chapters.findIndex(chap => chap === chapter);
-        controller.chapters.splice(removedChapterIndex, 1);
-
-        // Remove related stories from story index
-        for (let story of controller.allStories){
-          if (story.chapter === chapter){
-            let removedStoryIndex = controller.stories.findIndex(eachStory => eachStory._id === story._id);
-            controller.allStories.splice(removedStoryIndex, 1)
-          }
-        }
-
-        // Resets some values
-        controller.chapter = controller.chapters[0];
-        controller.changeChapter(controller.chapter);
-
+        controller.getStories();
       })
     };
 
@@ -206,6 +184,8 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
 
     // GET ONE CHAPTER
     this.changeChapter = function(chapter){
+
+      // Sets the chapter and gets related stories
       controller.chapter = chapter;
       controller.stories = [];
       for (let story of controller.allStories){
@@ -214,12 +194,14 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         }
       }
 
+      // Sorts the stories
       controller.stories.sort((a, b) => {
         if (a.date < b.date){return -1}
         if (a.date > b.date){return 1}
         else{return 0}
       })
 
+      // Starts us off at the first page
       controller.currentStoryIndex = 0;
     };
 

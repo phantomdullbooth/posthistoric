@@ -59,21 +59,35 @@
       <li ng-repeat="chapter in ctrl.chapters">
         {{chapter}}
 
-        <button ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')">
+        <!-- CHANGE CHAPTER BUTTON -->
+        <button
+          ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')"
+          class="bg-green">
           Switch to this chapter
         </button>
+
         <!-- EDIT AND DELETE BUTTONS -->
         <div ng-if="currentUser.username === 'ahlisa' || currentUser.username === 'addison' || currentUser.username === 'aegean'" >
-          <button ng-click="ctrl.indexOfChapEditToShow = $index">
+          <button ng-click="ctrl.indexOfChapEditToShow = $index"
+            class="bg-gold">
             Update title
           </button>
 
-          <button ng-click="ctrl.deleteChapter(chapter)">
+          <button
+            ng-if="ctrl.indexOfChapEditToShow === $index"
+            ng-click="ctrl.indexOfChapEditToShow = null"
+            class="bg-black">
+            Hide edit form
+          </button>
+
+          <button ng-click="ctrl.deleteChapter(chapter)"
+            class="bg-blue">
             Delete chapter
           </button>
         </div>
 
-        <form ng-if="ctrl.indexOfChapEditToShow === $index" ng-submit="ctrl.updateChapterTitle(chapter)">
+        <form ng-if="ctrl.indexOfChapEditToShow === $index" ng-submit="ctrl.editChapter(chapter)">
+          <input type="text" ng-value="chapter" ng-model="ctrl.updatedChapter">
           <input type="submit" value="Update title">
         </form>
       </li>
