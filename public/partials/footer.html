@@ -1,10 +1,16 @@
-<div class="add-story">
+<div class="add-story" ng-class="(ctrl.text.length > 200) ? 'overlimit': ''">
   <img class="featherpen" src="css/images/featherpen.png" alt="featherpen">
   <h2 class="footerHeader green">Add To The Story</h2>
   <form ng-submit="ctrl.createStory()">
     <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
     <button type="submit" class="bg-green" value="add">Add</button>
   </form>
+  <div ng-if="ctrl.text.length < 200">
+    <b>{{200 - ctrl.text.length}}</b>
+  </div>
+  <div class="char-limit-msg" ng-if="ctrl.text.length > 200">
+    <b>{{200 - ctrl.text.length}}</b> Story cannot be longer than 200 characters.
+  </div>
 </div>
 
 
