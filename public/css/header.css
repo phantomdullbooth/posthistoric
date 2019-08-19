@@ -1,18 +1,18 @@
 header nav {
   display: flex;
   justify-content: space-around;
-  background-color: rgba(57, 33, 9, 0.4);
+  background-color: #39210966;
   padding: 0.7em;
   font-size: 1.4em;
   transition-duration: 1s;
 }
 
 header nav:hover{
-  background-color: rgba(57,33,9,0.8);
+  background-color: #392109cc;
 }
 
 nav a:hover{
-  color: rgb(234, 179, 123);
+  color: var(--yellow);
 }
 
 header form{
@@ -24,60 +24,4 @@ header form{
 header .user-greeting{
   display: flex;
   justify-content: flex-start;
-}
-
-/* DROPDOWN */
-
-.dropdown-content{
-  display: none;
-}
-
-.dropdown:hover .dropdown-content{
-  display: block;
-}
-
-/* MODAL */
-
-.my-modal{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-}
-
-.modal-text{
-  background-color: white;
-  padding: 1em;
-  margin: 1em auto;
-  height: 80vh;
-  width: 50%;
-  border-radius: 1em;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-text ul{
-  margin-left: -3em;
-  width: 100%;
-  text-align: center;
-}
-
-.modal-text li{
-  border: 1px solid #ccc;
-  padding: 1em 0;
-  width: 100%;
-  list-style-type: none;
-  font-family: 'Merriweather';
-  font-size: 1.5em;
-}
-
-.modal-text li:hover{
-  background-color: #ccc;
 }

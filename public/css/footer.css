@@ -1,14 +1,14 @@
-footer{
+footer {
   text-align: center;
 }
 
-footer a{
+footer a {
   font-size: 1.2em;
 }
 
-footer a:hover{
+/* footer a:hover{
   color: rgb(234, 179, 123);
-}
+} */
 
 footer ul{
   list-style-type: none;
@@ -41,7 +41,7 @@ footer ul{
   font-weight: bolder;
 }
 
-.addButton {
+/* .addButton {
   background-color: #199813;
   color: ghostwhite;
   border-radius: 1em;
@@ -50,7 +50,7 @@ footer ul{
   font-family: "Merriweather", serif;
   text-transform: lowercase;
   font-weight: bolder;
-}
+} */
 
 .table-of-contents {
   margin: 0;

@@ -33,7 +33,8 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.newPassword" placeholder="Password">
 
-  <input type="submit" value="Sign Up">
+  <button type="submit" class="bg-green" value="Sign Up">Sign Up</button>
+
 </form>
 
 <!-- LOGIN FORM -->
@@ -44,28 +45,9 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.password" placeholder="Password">
 
-  <input type="submit" value="Log in">
+  <button type="submit" class="bg-green" value="Log in">Log In</button>
 
 </form>
 
-<div ng-if="auth.showChapters" class="chapter-list my-modal">
-
-  <div class="modal-text">
-    <ul>
-      <li
-        ng-repeat="chapter in ctrl.chapters"
-        ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')">
-        {{chapter}}
-      </li>
-    </ul>
-
-    <input type="text" ng-model="newChapter" placeholder="Start a new chapter.">
-    <button ng-click="ctrl.createChapter(newChapter); auth.toggleModal('chapters')">
-      Add
-    </button>
-  </div>
-
-</div>
-
-<div ng-show="showAbout" ng-include="'partials/about.html'"
+<div ng-show="showAbout" ng-include="'partials/about.html'">
 </div>
