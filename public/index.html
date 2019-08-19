@@ -7,16 +7,18 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="js/app.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700|Marck+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/body.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
 </head>
+
+
 <!-- //// BODY //// -->
 <body ng-controller="ParentController as parent">
+  <div ng-include="ctrl.includePath"></div>
 
   <!-- //// SITE-WIDE CONTAINER //// -->
   <div ng-controller="Controller as ctrl">
@@ -28,6 +30,11 @@
     </header>
 
     <!-- //// MAIN //// -->
+
+    <!-- // ABOUT SECTION *toggles on and off// -->
+    <div class="aboutSection" ng-controller="Controller as ctrl" ng-include="ctrl.includePath"></div>
+    <!-- end of about -->
+
     <main ng-include="'partials/body.html'">
     </main>
 

@@ -1,6 +1,6 @@
 <nav>
-  <a href="/">Home</a>
-  <a href="#">About</a>
+  <a href="#" ng-click="showAbout = false">Home</a>
+  <a href="#" ng-click="showAbout = !showAbout">About</a>
 
   <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
   <a
@@ -47,6 +47,7 @@
 
 </form>
 
+<<<<<<< HEAD
 <div ng-if="auth.showChapters" class="chapter-list my-modal">
 
   <div class="modal-text">
@@ -61,4 +62,7 @@
 
   </div>
 
+=======
+<div ng-show="showAbout" ng-include="'partials/about.html'"
+>>>>>>> 2a999014f4fc0568c4d38370d40043463480a44e
 </div>

@@ -2,20 +2,28 @@
     border: 1px solid gold;
 } */
 
-h2 {
+/* TEXT & FONT */
+h2, h3, a {
     font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-size: 2rem;
-    /* margin: 20px; */
     letter-spacing: -1px;
 }
 
+/* title // BY (AUTHOR) IN BOOK */
+h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* story text */
 h3 {
-    font-family: "Merriweather", serif;
+    font-size: 1.3rem;
     font-weight: 300;
-    font-size: 300%;
-    margin: 20px 0px 5px 5px;
-    letter-spacing: -1px;  
+}
+
+/* notifications // EDITING */
+h6 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
 }
 
 a {
@@ -31,6 +39,26 @@ body {
     background: url('images/bg-wood-plant.jpg') no-repeat;
     background-size: cover;
     color: #484848;
+}
+
+.aboutSection {
+  height: 50em;
+  background-color: white;
+  padding: 1em;
+  position: absolute;
+}
+.aboutInfo {
+  padding: 0 7em;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.5em;
+}
+
+.aboutTitle {
+  text-align: center;
+  text-transform: lowercase;
+  color: #199813;
+  font-size: 3em;
 }
 
 header {

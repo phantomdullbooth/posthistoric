@@ -50,9 +50,10 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
           author: $rootScope.currentUser.username,
           date: this.date
         }
-      }).then(function(){
+      }).then(function(response){
           controller.text = null;
-          controller.getStories();
+          controller.stories.push(response.data);
+          controller.currentStoryIndex = controller.stories.length - 2;
       });
     }
   };
@@ -71,14 +72,16 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         data: {
           text: this.updatedText
         }
-      }).then(function(){
-        controller.getStories();
+      }).then(function(response){
         controller.indexOfEditFormToShow = null;
+        const indexOfUpdatedStory = controller.stories.findIndex(eachStory => eachStory._id === story._id);
+        controller.stories.splice(indexOfUpdatedStory, 1, response.data);
       });
     }
   };
 
     // DESTROY STORY (DELETE)
+    // See Unit 3 w08d02 angular_delete.md for the solution to this
 
     this.deleteStory = function(story){
       if (!$rootScope.currentUser){
@@ -89,8 +92,11 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         $http({
           method: "DELETE",
           url: '/stories/' + story._id
-        }).then(function(){
-            controller.getStories();
+        }).then(function(response){
+            controller.currentStoryIndex -= 1;
+            const indexOfDeletedStory = controller.stories.findIndex(eachStory => eachStory._id === story._id);
+            controller.stories.splice(indexOfDeletedStory, 1);
+            controller.indexOfEditFormToShow = null;
         });
       }
   };
