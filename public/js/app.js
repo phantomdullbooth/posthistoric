@@ -156,9 +156,41 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
 
     // CREATE NEW CHAPTER
     this.createChapter = function(newChapter){
-      controller.chapter = newChapter;
-      controller.chapters.push(newChapter);
-      controller.stories = [];
+      if (!newChapter || newChapter.length <= 0){
+        alert("Please insert a title.")
+      } else if (!$rootScope.currentUser)  {
+        alert("You need to log in to do that.")
+      } else {
+        controller.chapter = newChapter;
+        controller.chapters.push(newChapter);
+        controller.stories = [];
+      }
+    };
+
+    // DELETE CHAPTER
+    this.deleteChapter = function(chapter){
+      $http({
+        method: 'DELETE',
+        url: '/stories/chapter/' + chapter
+      }).then(function(response){
+
+        // Remove chapter from chapter index
+        let removedChapterIndex = controller.chapters.findIndex(chap => chap === chapter);
+        controller.chapters.splice(removedChapterIndex, 1);
+
+        // Remove related stories from story index
+        for (let story of controller.allStories){
+          if (story.chapter === chapter){
+            let removedStoryIndex = controller.stories.findIndex(eachStory => eachStory._id === story._id);
+            controller.allStories.splice(removedStoryIndex, 1)
+          }
+        }
+
+        // Resets some values
+        controller.chapter = controller.chapters[0];
+        controller.changeChapter(controller.chapter);
+
+      })
     };
 
     // STORE ALL CHAPTERS (for the chapter select screen)
@@ -211,6 +243,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
   this.showLogin = false;
   this.showSignup = false;
   this.showChapters = false;
+  this.showEditChapter = false;
   this.username = null;
   this.password = null;
   this.newUsername = null;

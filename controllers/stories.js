@@ -18,6 +18,13 @@ router.delete('/:id', (req, res) => {
   });
 });
 
+/// DELETE A CHAPTER ///
+router.delete('/chapter/:chapter', (req, res) => {
+  Stories.deleteMany({chapter: req.params.chapter}, (err, deletedStories)=> {
+    res.json(deletedStories)
+  })
+});
+
 /// EDIT A STORY ///
 router.put('/:id', (req, res) => {
   Stories.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedStory) => {
