@@ -25,3 +25,49 @@ header .user-greeting{
   display: flex;
   justify-content: flex-start;
 }
+
+/* MODAL */
+
+.my-modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-text{
+  background-color: white;
+  padding: 1em;
+  margin: 1em auto;
+  height: 80vh;
+  width: 50%;
+  border-radius: 1em;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-text ul{
+  margin-left: -3em;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-text li{
+  border: 1px solid #ccc;
+  padding: 1em 0;
+  width: 100%;
+  list-style-type: none;
+  font-family: 'Merriweather';
+  font-size: 1.5em;
+}
+
+.modal-text li:hover{
+  background-color: #ccc;
+}
