@@ -14,7 +14,7 @@
         </div>
 
         <!-- LEFT MAIN PAGE -->
-        <div id="left-page">
+        <div id="left-page" class="swing-in-right-bck">
             <!-- LEFT AREA WITH AUTHOR, STORY TEXT, EDIT FORM, PAGE NUMBER -->
             <div class="text-area">
 
@@ -45,14 +45,14 @@
                     <!-- BUTTON GROUPING -->
                     <div class="button-group">
                         <!-- UPDATE BUTTON -->
-                        <input form="left-form" type="submit" class="button bg-green" value="Update">
-                        <!-- DELETE BUTTON -->
-                        <button class="button bg-blue"
-                            ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
+                        <button form="left-form" type="submit" class="bg-green" value="Update">Update</button>
                         <!-- HIDE FORM BUTTON -->
-                        <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                        <button class="bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
                             Hide edit form
                         </button>
+                        <!-- DELETE BUTTON -->
+                        <button class="bg-blue"
+                            ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
                     </div>
 
                 </div>
@@ -70,7 +70,7 @@
         <!-- RIGHT MAIN PAGE -->
         <div id="right-page">
             <!-- RIGHT AREA WITH AUTHOR, STORY TEXT, EDIT FORM, PAGE NUMBER -->
-            <div class="text-area">
+            <div class="text-area slide-in-bck-center">
 
                 <!-- AUTHOR TAG -->
                 <h2>by
@@ -98,14 +98,14 @@
                     <!-- BUTTON GROUPING -->
                     <div class="button-group">
                         <!-- UPDATE BUTTON -->
-                        <input form="right-form" type="submit" class="button bg-green" value="Update">
+                        <button form="right-form" type="submit" class="bg-green" value="Update">Update</button>
                         <!-- HIDE FORM BUTTON -->
-                        <button class="button bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                        <button class="bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
                             Hide Edit Form
                         </button>
                         <!-- DELETE BUTTON -->
                         <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])"
-                            class="button bg-blue">
+                            class="bg-blue">
                             Delete
                         </button>
                     </div>
