@@ -18,13 +18,14 @@
     Log out {{currentUser.username}}
   </a>
 
+  <!-- CHAPTER SELECT -->
   <a href="#" ng-click="auth.toggleModal('chapters')">
     Chapters
   </a>
 
 </nav>
 
-
+<!-- SIGNUP FORM -->
 <form ng-if="auth.showSignup" ng-submit="auth.signup()">
   <label for="Username">Username</label>
   <input type="text" ng-model="auth.newUsername" placeholder="Username">
@@ -33,9 +34,9 @@
   <input type="password" ng-model="auth.newPassword" placeholder="Password">
 
   <input type="submit" value="Sign Up">
-
 </form>
 
+<!-- LOGIN FORM -->
 <form ng-if="auth.showLogin" ng-submit="auth.login()">
   <label for="Username">Username</label>
   <input type="text" ng-model="auth.username" placeholder="Username">
@@ -47,22 +48,24 @@
 
 </form>
 
-<<<<<<< HEAD
 <div ng-if="auth.showChapters" class="chapter-list my-modal">
 
   <div class="modal-text">
-
     <ul>
       <li
         ng-repeat="chapter in ctrl.chapters"
-        ng-click="ctrl.currentChapterIndex = $index">
-        {{chapter.title}}
+        ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')">
+        {{chapter}}
       </li>
     </ul>
 
+    <input type="text" ng-model="newChapter" placeholder="Start a new chapter.">
+    <button ng-click="ctrl.createChapter(newChapter); auth.toggleModal('chapters')">
+      Add
+    </button>
   </div>
 
-=======
+</div>
+
 <div ng-show="showAbout" ng-include="'partials/about.html'"
->>>>>>> 2a999014f4fc0568c4d38370d40043463480a44e
 </div>

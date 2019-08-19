@@ -81,10 +81,6 @@ app.use('/stories', storyController);
 const sessionController = require('./controllers/sessions.js');
 app.use('/sessions', sessionController);
 
-// CHAPTER CONTROLLER
-const chapterController = require('./controllers/chapters.js');
-app.use('/chapters', chapterController);
-
 // AUTHORIZATION ROUTE
 app.get('/app', (req, res) => {
   if (req.session.currentUser){
