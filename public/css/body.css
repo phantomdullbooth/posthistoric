@@ -20,7 +20,7 @@ main {
     padding: 30px;
     border-radius: 5px;
     background-color: #392109;
-    box-shadow: 0px 0px 35px -5px #191919;
+    box-shadow: 0px 0px 35px -5px var(--black);
     margin-left: 80px;
 }
 
@@ -46,7 +46,7 @@ main {
 .fake-line {
     width: 5%;
     height: 100%;
-    background-color: #9f9e98;
+    background-color: #9b9a96;
 }
 
 #spine {
@@ -62,7 +62,7 @@ main {
     align-items: center;
     width: 50%;
     height: 100%;
-    background-color: #b18224;
+    background-color: var(--dirtysun);
 }
 
 #book-left {
@@ -89,6 +89,14 @@ main {
     box-shadow: -20px 0px 40px -5px #1f1f1fa1;
     box-shadow: inset -112px 0px 50px -79px #8a8271;
 }
+
+.ng-hide {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    top:-200px;
+    left: 200px;
+  }
 
 #right-page {
     border-radius: 5% 0px 0px 5%;
@@ -137,13 +145,14 @@ main {
         border-radius: 5px;
         margin: 10px 0;
         font-family: 'Helvetica Neue', sans-serif;
-        font-size: 0.75rem;
+        font-size: 0.75em;
     }
 
     .button-group {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        padding-top: 10px;
     }
 
     .bg-black {
@@ -156,9 +165,51 @@ main {
 
     .bg-gold {
         background-color: var(--yellow);
-        color: var(--black); 
     }
 
     .bg-blue {
         background-color: var(--blue);
     }
+
+/* ANIMATIONS */
+
+.swing-in-right-bck {
+	        animation: swing-in-right-bck 5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 2s both;
+}
+
+.slide-in-bck-center {
+	-webkit-animation: slide-in-bck-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	        animation: slide-in-bck-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+}
+
+
+  @keyframes swing-in-right-bck {
+    0% {
+      -webkit-transform: rotateY(70deg);
+              transform: rotateY(70deg);
+      -webkit-transform-origin: right;
+              transform-origin: right;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      -webkit-transform-origin: right;
+              transform-origin: right;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in-bck-center {
+    0% {
+      -webkit-transform: translateZ(600px);
+              transform: translateZ(600px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  
