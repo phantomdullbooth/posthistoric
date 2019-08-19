@@ -52,5 +52,37 @@ body {
     justify-content: space-between;
     background: url('images/bg-wood-plant.jpg') no-repeat;
     background-size: cover;
+    color: #484848;
 }
 
+.aboutSection {
+  height: 50em;
+  background-color: white;
+  padding: 1em;
+  position: absolute;
+}
+.aboutInfo {
+  padding: 0 7em;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.5em;
+}
+
+.aboutTitle {
+  text-align: center;
+  text-transform: lowercase;
+  color: #199813;
+  font-size: 3em;
+}
+
+header {
+    height: 15vh;
+}
+
+main {
+    height: 65vh;
+}
+
+footer {
+    height: 20vh;
+}
