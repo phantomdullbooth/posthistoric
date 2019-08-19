@@ -1,46 +1,15 @@
-/* * {
-    border: 1px solid gold;
-} */
-
-/* TEXT & FONT */
-h2, h3, a {
-    font-family: "Merriweather", serif;
-    letter-spacing: -1px;
+/* == COLORS == */
+:root {
+    --blue: #005fcc;
+    --green: #199813;
+	--yellow: #edae01;
+    --dirtysun: #b18224;
+    --lightgrey: #484848;
+    --black: #191919;
+    --white: #f8f8ff;
 }
 
-/* title // BY (AUTHOR) IN BOOK */
-h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-}
-
-/* story text */
-h3 {
-    font-size: 1.3rem;
-    font-weight: 300;
-}
-
-/* notifications // EDITING */
-h6 {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 0.75rem;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #7AB5BE;
-    background: url('images/bg-wood-plant.jpg') no-repeat;
-    background-size: cover;
-    color: #484848;
-}
-
+/* == SECTION HEIGHTS == */
 header {
     height: 15vh;
 }
@@ -51,4 +20,94 @@ main {
 
 footer {
     height: 20vh;
+}
+
+/* == FONT & TEXT == */
+h1, h2, h3, a {
+    font-family: "Merriweather", serif;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+h6 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.75em;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: var(--yellow);
+  }
+
+/* == OVERALL BODY == */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url('images/bg-wood-plant.jpg') no-repeat;
+    background-size: cover;
+    color: var(--lightgrey);
+    background-color: #cdc3a5;
+}
+
+/* == ABOUT SPECIFICS == */
+.aboutSection {
+  height: 90vh;
+  background-color: white;
+  padding: 1em;
+  position: absolute;
+  z-index: 1;
+}
+.aboutInfo {
+  padding: 0 7em;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.5em;
+}
+
+.aboutTitle {
+  text-align: center;
+  text-transform: lowercase;
+  color: var(--green);
+  font-size: 3em;
+}
+
+/* == BUTTONS & FORMS == */
+button {
+    font-family: "Merriweather", serif;
+    font-weight: bolder;
+    text-transform: lowercase;
+    padding: 10px 15px;
+    color: var(--white);
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+input {
+    height: 2em;
+    width: 15em;
+    border-radius: 0.5em;
+    outline-color: var(--green);
+    padding: 0 10px;
+    font-family: "Merriweather", serif;
+    box-shadow: 20px 0px 40px -5px #1f1f1fa1;
+    border: none;
+}
+
+::placeholder {
+    font-family: "Merriweather", serif;
+    color: var(--black);
 }
