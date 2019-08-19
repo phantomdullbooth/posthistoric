@@ -151,14 +151,18 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
 
     // EDIT CHAPTER
     this.editChapter = function(chapter){
-      $http({
-        method: 'PUT',
-        url: '/stories/chapter/' + chapter,
-        data: {chapter: controller.updatedChapter}
-      }).then(function(response){
-        controller.getStories();
-        controller.indexOfChapEditToShow = null;
-      })
+      if (!controller.updatedChapter || controller.updatedChapter.length <= 0){
+        alert("Please insert a title.")
+      } else {
+        $http({
+          method: 'PUT',
+          url: '/stories/chapter/' + chapter,
+          data: {chapter: controller.updatedChapter}
+        }).then(function(response){
+          controller.getStories();
+          controller.indexOfChapEditToShow = null;
+        })
+      }
     };
 
     // DELETE CHAPTER
