@@ -71,3 +71,25 @@ header .user-greeting{
 .modal-text li:hover{
   background-color: #ccc;
 }
+
+@media screen and (max-width: 650px) {
+    header form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    header input {
+        margin: 10px auto;
+    }
+
+    label {
+        display: none;
+    }
+
+    .break {
+        display: block;
+    }
+
+}

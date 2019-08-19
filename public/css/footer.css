@@ -1,18 +1,15 @@
 footer {
-  text-align: center;
+    text-align: center;
 }
 
 footer a {
   font-size: 1.2em;
 }
 
-/* footer a:hover{
-  color: rgb(234, 179, 123);
-} */
-
-footer ul{
+footer ul {
   list-style-type: none;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   background-color: rgba(0,0,0,0.7);
   margin: 1em 3em;
@@ -28,40 +25,52 @@ footer ul{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* padding-bottom: 2em; */
   margin: 0;
 }
 
 .footerHeader {
-  font-size: 1.7em;
-  padding-right: 0.5em;
-  font-family: "Merriweather", serif;
-  color: #199813;
-  text-transform: lowercase;
   font-weight: bolder;
+  text-transform: lowercase;
 }
-
-/* .addButton {
-  background-color: #199813;
-  color: ghostwhite;
-  border-radius: 1em;
-  height: 2em;
-  width: 5em;
-  font-family: "Merriweather", serif;
-  text-transform: lowercase;
-  font-weight: bolder;
-} */
 
 .table-of-contents {
   margin: 0;
 }
 
-.sentenceInput {
-  height: 2em;
-  width: 15em;
-  border-radius: 0.5em;
-}
+@media screen and (max-width: 650px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        position: static;
+        margin-bottom: 0;
+    }
 
-.withLove {
-  color: #199813;
+    .featherpen {
+        width: 4em;
+        height: 5em;
+    }
+    
+    .add-story {
+        flex-direction: column;
+        margin: 0;
+        padding-bottom: 2em;
+      }
+
+    footer ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+
+    li {
+        margin: 5px 5px;
+        width: 25%;
+        flex-grow: 2;
+    }
 }

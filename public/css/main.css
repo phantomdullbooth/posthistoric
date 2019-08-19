@@ -7,23 +7,32 @@
     --lightgrey: #484848;
     --black: #191919;
     --white: #f8f8ff;
+    --brown: #392109;
 }
 
-/* == SECTION HEIGHTS == */
-header {
-    height: 15vh;
+.bg-black {
+    background-color: var(--black);
+    color: var(--white);
 }
 
-main {
-    height: 65vh;
+.bg-green {
+   background-color: var(--green); 
 }
 
-footer {
-    height: 20vh;
+.bg-gold {
+    background-color: var(--yellow);
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.green {
+    color: var(--green);
 }
 
 /* == FONT & TEXT == */
-h1, h2, h3, a {
+h1, h2, h3, h4, a, button, label {
     font-family: "Merriweather", serif;
     letter-spacing: -1px;
 }
@@ -38,9 +47,19 @@ h3 {
     font-weight: 300;
 }
 
+h4 {
+    font-size: 1em;
+    color: var(--green);
+}
+
 h6 {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 0.75em;
+    padding: 10px 15px;
+    color: var(--white);
+    border-radius: 1em;
+    cursor: pointer;
+    margin: 10px;
 }
 
 a {
@@ -54,9 +73,9 @@ a:hover{
 
 /* == OVERALL BODY == */
 body {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
     background: url('images/bg-wood-plant.jpg') no-repeat;
     background-size: cover;
     color: var(--lightgrey);
@@ -87,13 +106,13 @@ body {
 
 /* == BUTTONS & FORMS == */
 button {
-    font-family: "Merriweather", serif;
     font-weight: bolder;
     text-transform: lowercase;
     padding: 10px 15px;
     color: var(--white);
     border-radius: 1em;
     cursor: pointer;
+    margin: 10px;
 }
 
 input {
@@ -104,10 +123,24 @@ input {
     padding: 0 10px;
     font-family: "Merriweather", serif;
     box-shadow: 20px 0px 40px -5px #1f1f1fa1;
-    border: none;
+    border: 2px solid var(--black);
+    /* margin-left: 20px;
+    margin-right: 20px; */
 }
 
 ::placeholder {
     font-family: "Merriweather", serif;
     color: var(--black);
+}
+
+@media screen and (max-width: 650px) {
+    input {
+        height: 2em;
+        width: 15em;
+        border-radius: 0.5em;
+        outline-color: var(--green);
+        padding: 0 10px;
+        font-family: "Merriweather", serif;
+        border: 2px solid var(--black);
+    }
 }
