@@ -34,13 +34,6 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
     // RESTFUL ROUTES
     // ==============
 
-    // ABOUT PAGE
-
-    this.includePath = '';
-    this.changeInclude = (path) => {
-  	this.includePath = 'partials/'+ path +'.html';
-  }
-
     // CREATE NEW STORY (POST)
 
   this.createStory = function(){
