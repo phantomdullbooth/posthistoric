@@ -1,6 +1,20 @@
 
 <div ng-show="showAbout" class="aboutSection">
-  <h1 class="aboutTitle">About PostScript</h1>
-
-  <p class="aboutInfo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="aboutHeader">
+    <img class="openBook" src="css/images/openbook.png" alt="open book">
+    <h1 class="aboutTitle">About PostScript</h1>
+  </div>
+  <div class="aboutContent">
+      <p class="aboutInfo">
+      <i>Ready to create an epic tale?</i><br><br>
+      You can <strong><a class="signUpLink" href="#" ng-click="auth.toggleModal('signup')"
+      ng-if="!currentUser">sign up</a></strong> for an account and add to the story, one sentence at a time. <br><br>
+      You can also <strong class="green">edit/delete</strong> your sentences (<i> only yours! </i>) by double-clicking on them.<br><br>
+      </p>
+      <h2 class="aboutInfo green">Invite your friends!</h2><br>
+      <p class="aboutInfo">
+      So that you can work together to create something great...or hilarious...or something in-between.
+      </p>
+      <a href="#"><img class="socialMedia" src="css/images/socialmedia.png" alt="social media buttons"></a>
+  </div>
 </div>
