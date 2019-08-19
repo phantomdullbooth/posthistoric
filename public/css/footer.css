@@ -37,6 +37,14 @@ footer ul {
   margin: 0;
 }
 
+.overlimit{
+  background-color: rgba(255,200,200,0.8);
+}
+
+.char-limit-msg{
+  color: red;
+}
+
 @media screen and (max-width: 650px) {
     footer {
         display: flex;
@@ -51,7 +59,7 @@ footer ul {
         width: 4em;
         height: 5em;
     }
-    
+
     .add-story {
         flex-direction: column;
         margin: 0;
