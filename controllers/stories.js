@@ -18,11 +18,25 @@ router.delete('/:id', (req, res) => {
   });
 });
 
+/// DELETE A CHAPTER ///
+router.delete('/chapter/:chapter', (req, res) => {
+  Stories.deleteMany({chapter: req.params.chapter}, (err, deletedStories)=> {
+    res.json(deletedStories)
+  })
+});
+
 /// EDIT A STORY ///
 router.put('/:id', (req, res) => {
   Stories.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedStory) => {
     res.json(updatedStory);
   });
+});
+
+/// EDIT A CHAPTER ///
+router.put('/chapter/:chapter', (req, res) => {
+  Stories.updateMany({chapter: req.params.chapter}, {$set: {chapter: req.body.chapter}}, {multi: true}, (err, updatedStories)=> {
+    res.json(updatedStories)
+  })
 });
 
 /// CREATE NEW STORY ///

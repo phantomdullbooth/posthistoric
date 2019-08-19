@@ -1,10 +1,18 @@
+<div class="add-story">
+  <img class="featherpen" src="css/images/featherpen.png" alt="featherpen">
+  <h2 class="footerHeader green">Add To The Story</h2>
+  <form ng-submit="ctrl.createStory()">
+    <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
+    <button type="submit" class="bg-green" value="add">Add</button>
+  </form>
+</div>
+
 
   <div class="table-of-contents">
     <h2>Table of contents:</h2>
     <ul>
-      <li ng-repeat="story in ctrl.stories">
+      <li ng-repeat="story in ctrl.stories" ng-if="$index % 2 === 0">
         <a
-          ng-if="$index % 2 === 0"
           href="#"
           ng-click="ctrl.currentStoryIndex = $index">
           {{$index + 1}} - {{$index + 2}}
@@ -13,10 +21,4 @@
     </ul>
   </div>
 
-  <div class="add-story">
-    <h2>Add To The Story!</h2>
-    <form ng-submit="ctrl.createStory()">
-      Your Sentence: <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
-      <input type="submit" value="Add!">
-    </form>
-  </div>
+<h4>made with &#10084; by the a-team</h4>

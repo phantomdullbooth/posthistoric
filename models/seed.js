@@ -54,71 +54,88 @@ const dateArray = generateDates(20);
 const lineArray = [
 { text: "Once upon a time...",
   author: "ahlisa",
-  date: dateArray[0] },
+  date: dateArray[0],
+  chapter: "Into the Woods"},
 
 { text: "In a far-off kingdom...",
   author: "ahlisa",
-  date: dateArray[2] },
+  date: dateArray[2],
+  chapter: "Into the Woods"},
 
 { text: "Lived a fair maiden...",
   author: "ahlisa",
-  date: dateArray[4] },
+  date: dateArray[4],
+  chapter: "Into the Woods"},
 
 { text: "...a sad young lad...",
   author: "ahlisa",
-  date: dateArray[6] },
+  date: dateArray[6],
+  chapter: "Into the Woods"},
 
 { text: "...and a childless a baker...",
   author: "ahlisa",
-  date: dateArray[8] },
+  date: dateArray[8],
+  chapter: "Into the Woods"},
 
 { text: "...with his wife.",
   author: "ahlisa",
-  date: dateArray[10] },
+  date: dateArray[10],
+  chapter: "Into the Woods"},
 
 { text: "I wish my cow would give us some milk! (More than anything...)",
   author: "ahlisa",
-  date: dateArray[15] },
+  date: dateArray[15],
+  chapter: "Into the Woods"},
 
 { text: "I wish...",
   author: "aegean",
-  date: dateArray[1] },
+  date: dateArray[1],
+  chapter: "Into the Woods"},
 
 { text: "More than anything...",
   author: "aegean",
-  date: dateArray[3] },
+  date: dateArray[3],
+  chapter: "Into the Woods"},
 
 { text: "More than life...",
   author: "aegean",
-  date: dateArray[5] },
+  date: dateArray[5],
+  chapter: "Into the Woods"},
 
 { text: "More than jewels... (I wish)",
   author: "aegean",
-  date: dateArray[7] },
+  date: dateArray[7],
+  chapter: "Into the Woods"},
 
 { text: "The king is giving a festival!",
   author: "aegean",
-  date: dateArray[12] },
+  date: dateArray[12],
+  chapter: "Into the Woods"},
 
 { text: "I wish to go to the festival! (More than riches) And the ball!",
   author: "aegean",
-  date: dateArray[14] },
+  date: dateArray[14],
+  chapter: "Into the Woods"},
 
 { text: "(More than life) I wish...",
   author: "addison",
-  date: dateArray[9] },
+  date: dateArray[9],
+  chapter: "Into the Woods"},
 
 { text: "(More than anything) More than the moon... (I wish)",
   author: "addison",
-  date: dateArray[11] },
+  date: dateArray[11],
+  chapter: "Into the Woods"},
 
 { text: "More than life (I wish)",
   author: "addison",
-  date: dateArray[13] },
+  date: dateArray[13],
+  chapter: "Into the Woods"},
 
 { text: "I wish we had a child! (Squeeze pal, squeeze pal...) I want a child!",
   author: "addison",
-  date: dateArray[16] }
+  date: dateArray[16],
+  chapter: "Into the Woods"}
 ]
 
 // ==========================

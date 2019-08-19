@@ -30,15 +30,17 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
     const controller = this;
     this.indexOfEditFormToShow = 0;
 
-    // ==============
+    // ===============
     // RESTFUL ROUTES
-    // ==============
+    // ===============
 
     // CREATE NEW STORY (POST)
 
   this.createStory = function(){
     if (!$rootScope.currentUser){
       alert("You need to sign in to do that.");
+    } else if (controller.text.length > 200){
+      alert("Brevity is the soul of wit. Please limit your submission to less than 200 characters.")
     } else {
       $http({
         method:'POST',
@@ -46,11 +48,14 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         data:{
           text: this.text,
           author: $rootScope.currentUser.username,
-          date: this.date
+          date: this.date,
+          chapter: this.chapter
         }
-      }).then(function(){
+      }).then(function(response){
           controller.text = null;
-          controller.getStories();
+          controller.stories.push(response.data);
+          controller.allStories.push(response.data);
+          controller.currentStoryIndex = controller.stories.length - 2;
       });
     }
   };
@@ -67,18 +72,23 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         method:"PUT",
         url: '/stories/' + story._id,
         data: {
-          text: this.updatedText,
-          author: this.updatedAuthor,
-          date: this.updatedDate
+          text: this.updatedText
         }
-      }).then(function(){
-        controller.getStories();
+      }).then(function(response){
         controller.indexOfEditFormToShow = null;
+
+        let indexOfUpdatedStory = controller.stories.findIndex(eachStory => eachStory._id === story._id);
+        controller.stories.splice(indexOfUpdatedStory, 1, response.data);
+
+        indexOfUpdatedStory = controller.allStories.findIndex(eachStory => eachStory._id === story._id);
+        controller.allStories.splice(indexOfUpdatedStory, 1, response.data);
+
       });
     }
   };
 
     // DESTROY STORY (DELETE)
+    // See Unit 3 w08d02 angular_delete.md for the solution to this
 
     this.deleteStory = function(story){
       if (!$rootScope.currentUser){
@@ -89,8 +99,16 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         $http({
           method: "DELETE",
           url: '/stories/' + story._id
-        }).then(function(){
-            controller.getStories();
+        }).then(function(response){
+            controller.currentStoryIndex -= 1;
+
+            let indexOfDeletedStory = controller.stories.findIndex(eachStory => eachStory._id === story._id);
+            controller.stories.splice(indexOfDeletedStory, 1);
+
+            indexOfDeletedStory = controller.allStories.findIndex(eachStory => eachStory._id === story._id);
+            controller.allStories.splice(indexOfDeletedStory, 1)
+
+            controller.indexOfEditFormToShow = null;
         });
       }
   };
@@ -102,17 +120,98 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         method:'GET',
         url:'/stories'
       }).then(function(response){
-        controller.stories = response.data.sort((a, b) => {
-          if (a.date < b.date){return -1}
-          if (a.date > b.date){return 1}
-          else{return 0}
-        });
-        controller.currentStoryIndex = 0;
+        // Stores ALL stories in an array for later
+        controller.allStories = response.data;
+
+        // Sets a random chapter to start with, then stores all chapters
+        controller.changeChapter(response.data[0].chapter)
+        controller.getChapters();
+
       }, function(error){
         console.log(error);
       });
     };
 
+    // =================
+    // CHAPTER "ROUTES"
+    // =================
+
+    // CREATE NEW CHAPTER
+    this.createChapter = function(newChapter){
+      if (!newChapter || newChapter.length <= 0){
+        alert("Please insert a title.")
+      } else if (!$rootScope.currentUser)  {
+        alert("You need to log in to do that.")
+      } else {
+        controller.chapter = newChapter;
+        controller.chapters.push(newChapter);
+        controller.stories = [];
+      }
+    };
+
+    // EDIT CHAPTER
+    this.editChapter = function(chapter){
+      if (!controller.updatedChapter || controller.updatedChapter.length <= 0){
+        alert("Please insert a title.")
+      } else {
+        $http({
+          method: 'PUT',
+          url: '/stories/chapter/' + chapter,
+          data: {chapter: controller.updatedChapter}
+        }).then(function(response){
+          controller.getStories();
+          controller.indexOfChapEditToShow = null;
+        })
+      }
+    };
+
+    // DELETE CHAPTER
+    this.deleteChapter = function(chapter){
+      $http({
+        method: 'DELETE',
+        url: '/stories/chapter/' + chapter
+      }).then(function(response){
+        controller.getStories();
+      })
+    };
+
+    // STORE ALL CHAPTERS (for the chapter select screen)
+    this.getChapters = function(){
+      let chapterArray = [];
+      for (let story of controller.allStories){
+        if (!chapterArray.includes(story.chapter)){
+          chapterArray.push(story.chapter)
+        }
+      }
+      controller.chapters = chapterArray;
+    };
+
+    // GET ONE CHAPTER
+    this.changeChapter = function(chapter){
+
+      // Sets the chapter and gets related stories
+      controller.chapter = chapter;
+      controller.stories = [];
+      for (let story of controller.allStories){
+        if (story.chapter === chapter){
+          controller.stories.push(story)
+        }
+      }
+
+      // Sorts the stories
+      controller.stories.sort((a, b) => {
+        if (a.date < b.date){return -1}
+        if (a.date > b.date){return 1}
+        else{return 0}
+      })
+
+      // Starts us off at the first page
+      controller.currentStoryIndex = 0;
+    };
+
+    // ======================
+    //      ON PAGE LOAD
+    // ======================
     this.getStories();
 }]);
 
@@ -129,6 +228,8 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
   const controller = this;
   this.showLogin = false;
   this.showSignup = false;
+  this.showChapters = false;
+  this.showEditChapter = false;
   this.username = null;
   this.password = null;
   this.newUsername = null;
@@ -213,6 +314,9 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
       case "login":
         controller.showLogin = !controller.showLogin;
         controller.showSignup = false;
+        break;
+      case "chapters":
+        controller.showChapters = !controller.showChapters;
         break;
       default:
         break;

@@ -1,6 +1,6 @@
 <nav>
-  <a href="#">Home</a>
-  <a href="#">About</a>
+  <a href="#" ng-click="showAbout = false">Home</a>
+  <a href="#" ng-click="showAbout = !showAbout">About</a>
 
   <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
   <a
@@ -17,9 +17,15 @@
   <a href="#" ng-click="auth.logout()" ng-if="currentUser">
     Log out {{currentUser.username}}
   </a>
+
+  <!-- CHAPTER SELECT -->
+  <a href="#" ng-click="auth.toggleModal('chapters')">
+    Chapters
+  </a>
+
 </nav>
 
-
+<!-- SIGNUP FORM -->
 <form ng-if="auth.showSignup" ng-submit="auth.signup()">
   <label for="Username">Username</label>
   <input type="text" ng-model="auth.newUsername" placeholder="Username">
@@ -27,10 +33,11 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.newPassword" placeholder="Password">
 
-  <input type="submit" value="Sign Up">
+  <button type="submit" class="break bg-green" value="Sign Up">Sign Up</button>
 
 </form>
 
+<!-- LOGIN FORM -->
 <form ng-if="auth.showLogin" ng-submit="auth.login()">
   <label for="Username">Username</label>
   <input type="text" ng-model="auth.username" placeholder="Username">
@@ -38,6 +45,62 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.password" placeholder="Password">
 
-  <input type="submit" value="Log in">
+  <button type="submit" class="break bg-green" value="Log in">Log In</button>
 
 </form>
+
+<!-- CHAPTER LIST MODAL -->
+<div ng-if="auth.showChapters" class="chapter-list my-modal">
+
+  <div class="modal-text">
+    <ul>
+
+      <!-- CHAPTER TITLE -->
+      <li ng-repeat="chapter in ctrl.chapters">
+        {{chapter}}
+
+        <!-- CHANGE CHAPTER BUTTON -->
+        <button
+          ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')"
+          class="bg-green">
+          Switch to this chapter
+        </button>
+
+        <!-- EDIT AND DELETE BUTTONS -->
+        <div ng-if="currentUser.username === 'ahlisa' || currentUser.username === 'addison' || currentUser.username === 'aegean'" >
+          <button ng-click="ctrl.indexOfChapEditToShow = $index"
+            class="bg-gold">
+            Update title
+          </button>
+
+          <button
+            ng-if="ctrl.indexOfChapEditToShow === $index"
+            ng-click="ctrl.indexOfChapEditToShow = null"
+            class="bg-black">
+            Hide edit form
+          </button>
+
+          <button ng-click="ctrl.deleteChapter(chapter)"
+            class="bg-blue">
+            Delete chapter
+          </button>
+        </div>
+
+        <form ng-if="ctrl.indexOfChapEditToShow === $index" ng-submit="ctrl.editChapter(chapter)">
+          <input type="text" ng-value="chapter" ng-model="ctrl.updatedChapter">
+          <input type="submit" value="Update title">
+        </form>
+      </li>
+    </ul>
+
+    <input type="text" ng-model="newChapter" placeholder="Start a new chapter.">
+    <button ng-click="ctrl.createChapter(newChapter); auth.toggleModal('chapters')">
+      Add
+    </button>
+  </div>
+
+</div>
+
+
+<div ng-show="showAbout" ng-include="'partials/about.html'">
+</div>

@@ -1,21 +1,65 @@
-/* * {
-    border: 1px solid gold;
-} */
+/* == COLORS == */
+:root {
+    --blue: #005fcc;
+    --green: #199813;
+	--yellow: #edae01;
+    --dirtysun: #b18224;
+    --lightgrey: #484848;
+    --black: #191919;
+    --white: #f8f8ff;
+    --brown: #392109;
+}
 
-h2 {
+.bg-black {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.bg-green {
+   background-color: var(--green); 
+}
+
+.bg-gold {
+    background-color: var(--yellow);
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.green {
+    color: var(--green);
+}
+
+/* == FONT & TEXT == */
+h1, h2, h3, h4, a, button, label {
     font-family: "Merriweather", serif;
-    font-weight: 700;
-    font-size: 2rem;
-    /* margin: 20px; */
     letter-spacing: -1px;
 }
 
+h2 {
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
 h3 {
-    font-family: "Merriweather", serif;
+    font-size: 1.3em;
     font-weight: 300;
-    font-size: 300%;
-    margin: 20px 0px 5px 5px;
-    letter-spacing: -1px;  
+}
+
+h4 {
+    font-size: 1em;
+    color: var(--green);
+}
+
+h6 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.75em;
+    padding: 10px 15px;
+    color: var(--white);
+    border-radius: 1em;
+    cursor: pointer;
+    margin: 10px;
 }
 
 a {
@@ -23,24 +67,80 @@ a {
     color: white;
 }
 
+a:hover{
+    color: var(--yellow);
+  }
+
+/* == OVERALL BODY == */
 body {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: #7AB5BE;
+    justify-content: space-between; */
     background: url('images/bg-wood-plant.jpg') no-repeat;
     background-size: cover;
-    color: #484848;
+    color: var(--lightgrey);
+    background-color: #cdc3a5;
 }
 
-header {
-    height: 15vh;
+/* == ABOUT SPECIFICS == */
+.aboutSection {
+  height: 90vh;
+  background-color: white;
+  padding: 1em;
+  position: absolute;
+  z-index: 1;
+}
+.aboutInfo {
+  padding: 0 7em;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.5em;
 }
 
-main {
-    height: 65vh;
+.aboutTitle {
+  text-align: center;
+  text-transform: lowercase;
+  color: var(--green);
+  font-size: 3em;
 }
 
-footer {
-    height: 20vh;
+/* == BUTTONS & FORMS == */
+button {
+    font-weight: bolder;
+    text-transform: lowercase;
+    padding: 10px 15px;
+    color: var(--white);
+    border-radius: 1em;
+    cursor: pointer;
+    margin: 10px;
+}
+
+input {
+    height: 2em;
+    width: 15em;
+    border-radius: 0.5em;
+    outline-color: var(--green);
+    padding: 0 10px;
+    font-family: "Merriweather", serif;
+    box-shadow: 20px 0px 40px -5px #1f1f1fa1;
+    border: 2px solid var(--black);
+    /* margin-left: 20px;
+    margin-right: 20px; */
+}
+
+::placeholder {
+    font-family: "Merriweather", serif;
+    color: var(--black);
+}
+
+@media screen and (max-width: 650px) {
+    input {
+        height: 2em;
+        width: 15em;
+        border-radius: 0.5em;
+        outline-color: var(--green);
+        padding: 0 10px;
+        font-family: "Merriweather", serif;
+        border: 2px solid var(--black);
+    }
 }
