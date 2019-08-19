@@ -14,7 +14,7 @@
         </div>
 
         <!-- LEFT MAIN PAGE -->
-        <div id="left-page" class="swing-in-right-bck">
+        <div id="left-page">
             <!-- LEFT AREA WITH AUTHOR, STORY TEXT, EDIT FORM, PAGE NUMBER -->
             <div class="text-area">
 
@@ -33,17 +33,18 @@
                 <!-- EDIT SECTION -->
                 <div ng-if="currentUser.username === ctrl.stories[ctrl.currentStoryIndex].author" class="moreDetails"
                     ng-show="ctrl.indexOfEditFormToShow === $index">
-                    <h6 class="button bg-black">Editing Sentence</h6>
+                    <h6 class="bg-black">Editing Sentence</h6>
 
                     <!-- EDIT FORM -->
-                    <form id="left-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);" class="book-form">
+                    <form id="left-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);"
+                        class="book-form">
 
                         <input type="text" ng-model="ctrl.updatedText"
                             ng-value="ctrl.stories[ctrl.currentStoryIndex].text">
                     </form>
 
                     <!-- BUTTON GROUPING -->
-                    <div class="button-group">
+                    <div class="edit-buttons">
                         <!-- UPDATE BUTTON -->
                         <button form="left-form" type="submit" class="bg-green" value="Update">Update</button>
                         <!-- HIDE FORM BUTTON -->
@@ -90,13 +91,14 @@
                     <h6 class="button bg-black">Editing Sentence</h6>
 
                     <!-- EDIT FORM -->
-                    <form id="right-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);" class="book-form">
+                    <form id="right-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);"
+                        class="book-form">
                         <input type="text" ng-model="ctrl.updatedText"
                             ng-value=" ctrl.stories[ctrl.currentStoryIndex+1].text">
                     </form>
 
                     <!-- BUTTON GROUPING -->
-                    <div class="button-group">
+                    <div class="edit-buttons">
                         <!-- UPDATE BUTTON -->
                         <button form="right-form" type="submit" class="bg-green" value="Update">Update</button>
                         <!-- HIDE FORM BUTTON -->
@@ -104,8 +106,7 @@
                             Hide Edit Form
                         </button>
                         <!-- DELETE BUTTON -->
-                        <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])"
-                            class="bg-blue">
+                        <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])" class="bg-blue">
                             Delete
                         </button>
                     </div>
