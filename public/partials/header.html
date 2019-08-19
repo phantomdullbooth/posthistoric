@@ -33,7 +33,8 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.newPassword" placeholder="Password">
 
-  <input type="submit" value="Sign Up">
+  <button type="submit" class="bg-green" value="Sign Up">Sign Up</button>
+
 </form>
 
 <!-- LOGIN FORM -->
@@ -44,7 +45,7 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.password" placeholder="Password">
 
-  <input type="submit" value="Log in">
+  <button type="submit" class="bg-green" value="Log in">Log In</button>
 
 </form>
 
@@ -67,5 +68,6 @@
 
 </div>
 
-<div ng-show="showAbout" ng-include="'partials/about.html'"
+
+<div ng-show="showAbout" ng-include="'partials/about.html'">
 </div>

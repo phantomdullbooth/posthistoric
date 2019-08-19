@@ -1,0 +1,51 @@
+.openBook {
+  width: 10%;
+  height: 50px;
+}
+
+.aboutHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1em;
+}
+
+.aboutSection {
+  height: 50em;
+  width: 100%;
+  background-color: #e3e1dd;
+  padding: 1em;
+  position: absolute;
+}
+.aboutInfo {
+  padding: 0 10em;
+  text-align: center;
+  font-family: "Merriweather", serif;
+  font-size: 1.5em;
+  width: 50%;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.aboutTitle {
+  text-align: center;
+  text-transform: lowercase;
+  color: #199813;
+  font-size: 3em;
+}
+
+.signUpLink {
+  color: #ffba00;
+}
+
+.socialMedia {
+  padding-top: 3em;
+  width: 6em;
+  height: 6em;
+}
+
+.aboutContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
