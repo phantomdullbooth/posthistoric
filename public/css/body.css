@@ -248,5 +248,12 @@
     order: 3;
 }
 
+.edit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+}
+
 
 }
