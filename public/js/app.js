@@ -233,6 +233,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
   this.showSignup = false;
   this.showChapters = false;
   this.showEditChapter = false;
+  this.showAbout = false;
   this.username = null;
   this.password = null;
   this.newUsername = null;
@@ -320,6 +321,11 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
         break;
       case "chapters":
         controller.showChapters = !controller.showChapters;
+        controller.showAbout = false;
+        break;
+      case "about":
+        controller.showAbout = !controller.showAbout;
+        controller.showChapters = false;
         break;
       default:
         break;
