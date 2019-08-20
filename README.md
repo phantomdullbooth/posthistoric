@@ -31,4 +31,4 @@ Live link: http://posthistoric.herokuapp.com/
 ### Authorization
 **Wins:** "Making users was a lot easier this time around, since we didn't use relational models." - Alyssa
 
-**Struggles:** ""
+**Struggles:** "Making CSS animation that works over and over again on the same page. Also, Angular animations." -Addison
