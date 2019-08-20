@@ -33,7 +33,7 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.newPassword" placeholder="Password">
 
-  <button type="submit" class="break bg-green" value="Sign Up">Sign Up</button>
+  <button type="submit" class="break green" value="Sign Up">Sign Up</button>
 
 </form>
 
@@ -45,7 +45,7 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.password" placeholder="Password">
 
-  <button type="submit" class="break bg-green" value="Log in">Log In</button>
+  <button type="submit" class="break green" value="Log in">Log In</button>
 
 </form>
 
@@ -62,26 +62,26 @@
         <!-- CHANGE CHAPTER BUTTON -->
         <button
           ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')"
-          class="bg-green">
+          class="green">
           Switch to this chapter
         </button>
 
         <!-- EDIT AND DELETE BUTTONS -->
         <div ng-if="currentUser.username === 'ahlisa' || currentUser.username === 'addison' || currentUser.username === 'aegean'" >
           <button ng-click="ctrl.indexOfChapEditToShow = $index"
-            class="bg-gold">
+            class="golden">
             Update title
           </button>
 
           <button
             ng-if="ctrl.indexOfChapEditToShow === $index"
             ng-click="ctrl.indexOfChapEditToShow = null"
-            class="bg-black">
+            class="darkgrey">
             Hide edit form
           </button>
 
           <button ng-click="ctrl.deleteChapter(chapter)"
-            class="bg-blue">
+            class="blue">
             Delete chapter
           </button>
         </div>
