@@ -145,11 +145,11 @@
 /* ================================ */
 
 .swing-in-right-bck {
-    animation: swing-in-right-bck 4s cubic-bezier(0.165, 0.840, 0.440, 1.000) 2s both;
+    animation: swing-in-right-bck 4s cubic-bezier(0.165, 0.840, 0.440, 1.000) 1s both;
 }
 
 .fade-in {
-    animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 2s both;
+    animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
 }
 
 @keyframes swing-in-right-bck {
