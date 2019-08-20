@@ -1,6 +1,6 @@
 <nav>
-  <a href="#" ng-click="showAbout = false">Home</a>
-  <a href="#" ng-click="showAbout = !showAbout">About</a>
+  <a href="/">Home</a>
+  <a href="#" ng-click="auth.toggleModal('about')">About</a>
 
   <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
   <a
@@ -118,5 +118,5 @@
 </div>
 
 
-<div ng-show="showAbout" ng-include="'partials/about.html'">
+<div ng-include="'partials/about.html'">
 </div>

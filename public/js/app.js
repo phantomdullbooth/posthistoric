@@ -67,6 +67,8 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
       alert("You need to sign in to do that.")
     } else if ($rootScope.currentUser.username !== story.author){
       alert("You do not have permission to edit this story.");
+    } else if (controller.updatedText.length > 200){
+      alert("Brevity is the soul of wit. Please limit your submission to less than 200 characters.");
     } else {
       $http({
         method:"PUT",
@@ -76,6 +78,7 @@ app.controller('Controller', ['$http', '$rootScope', function($http, $rootScope)
         }
       }).then(function(response){
         controller.indexOfEditFormToShow = null;
+        controller.updatedText = null;
 
         let indexOfUpdatedStory = controller.stories.findIndex(eachStory => eachStory._id === story._id);
         controller.stories.splice(indexOfUpdatedStory, 1, response.data);
@@ -230,6 +233,7 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
   this.showSignup = false;
   this.showChapters = false;
   this.showEditChapter = false;
+  this.showAbout = false;
   this.username = null;
   this.password = null;
   this.newUsername = null;
@@ -317,6 +321,11 @@ app.controller('AuthController', ['$http', '$rootScope', function($http, $rootSc
         break;
       case "chapters":
         controller.showChapters = !controller.showChapters;
+        controller.showAbout = false;
+        break;
+      case "about":
+        controller.showAbout = !controller.showAbout;
+        controller.showChapters = false;
         break;
       default:
         break;
