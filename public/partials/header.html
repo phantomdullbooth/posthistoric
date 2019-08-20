@@ -1,6 +1,6 @@
 <nav>
-  <a href="#" ng-click="showAbout = false">Home</a>
-  <a href="#" ng-click="showAbout = !showAbout">About</a>
+  <a href="/">Home</a>
+  <a href="#" ng-click="auth.toggleModal('about')">About</a>
 
   <!-- LOG IN/SIGN UP BUTTONS FOR GUESTS -->
   <a
@@ -33,7 +33,7 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.newPassword" placeholder="Password">
 
-  <button type="submit" class="break bg-green" value="Sign Up">Sign Up</button>
+  <button type="submit" class="break green" value="Sign Up">Sign Up</button>
 
 </form>
 
@@ -45,47 +45,59 @@
   <label for="Password">Password</label>
   <input type="password" ng-model="auth.password" placeholder="Password">
 
-  <button type="submit" class="break bg-green" value="Log in">Log In</button>
+  <button type="submit" class="break green" value="Log in">Log In</button>
 
 </form>
 
 <!-- CHAPTER LIST MODAL -->
-<div ng-if="auth.showChapters" class="chapter-list my-modal">
+<div ng-if="auth.showChapters" class="my-modal">
 
-  <div class="modal-text">
+  <div class="modal-text chapter-list">
+
     <ul>
 
       <!-- CHAPTER TITLE -->
       <li ng-repeat="chapter in ctrl.chapters">
         {{chapter}}
 
-        <!-- CHANGE CHAPTER BUTTON -->
-        <button
-          ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')"
-          class="bg-green">
-          Switch to this chapter
-        </button>
+        <!-- BUTTONS -->
+        <div class="chapter-buttons">
 
-        <!-- EDIT AND DELETE BUTTONS -->
-        <div ng-if="currentUser.username === 'ahlisa' || currentUser.username === 'addison' || currentUser.username === 'aegean'" >
-          <button ng-click="ctrl.indexOfChapEditToShow = $index"
-            class="bg-gold">
-            Update title
-          </button>
-
+          <!-- CHANGE CHAPTER BUTTON -->
           <button
-            ng-if="ctrl.indexOfChapEditToShow === $index"
-            ng-click="ctrl.indexOfChapEditToShow = null"
-            class="bg-black">
-            Hide edit form
+            ng-click="ctrl.changeChapter(chapter); auth.toggleModal('chapters')"
+            class="green">
+            Switch to this chapter
           </button>
 
-          <button ng-click="ctrl.deleteChapter(chapter)"
-            class="bg-blue">
-            Delete chapter
-          </button>
+          <!-- EDIT AND DELETE BUTTONS -->
+          <span ng-if="currentUser.username === 'ahlisa' || currentUser.username === 'addison' || currentUser.username === 'aegean'" >
+
+            <!-- SHOW EDIT FORM BUTTON -->
+            <button ng-click="ctrl.indexOfChapEditToShow = $index"
+              class="golden">
+              Update title
+            </button>
+
+            <!-- HIDE EDIT FORM BUTTON -->
+            <button
+              ng-if="ctrl.indexOfChapEditToShow === $index"
+              ng-click="ctrl.indexOfChapEditToShow = null"
+              class="darkgrey">
+              Hide edit form
+            </button>
+
+            <!-- DELETE BUTTON -->
+            <button ng-click="ctrl.deleteChapter(chapter)"
+              class="blue">
+              Delete chapter
+            </button>
+
+          </span>
+
         </div>
 
+        <!-- EDIT CHAPTER FORM -->
         <form ng-if="ctrl.indexOfChapEditToShow === $index" ng-submit="ctrl.editChapter(chapter)">
           <input type="text" ng-value="chapter" ng-model="ctrl.updatedChapter">
           <input type="submit" value="Update title">
@@ -93,14 +105,18 @@
       </li>
     </ul>
 
-    <input type="text" ng-model="newChapter" placeholder="Start a new chapter.">
-    <button ng-click="ctrl.createChapter(newChapter); auth.toggleModal('chapters')">
-      Add
-    </button>
+    <!-- ADD CHAPTER FORM -->
+    <div class="add-chapter-form">
+      <input type="text" ng-model="newChapter" placeholder="Start a new chapter.">
+      <button class="green" ng-click="ctrl.createChapter(newChapter); auth.toggleModal('chapters')">
+        Add
+      </button>
+    </div>
+
   </div>
 
 </div>
 
 
-<div ng-show="showAbout" ng-include="'partials/about.html'">
+<div ng-include="'partials/about.html'">
 </div>

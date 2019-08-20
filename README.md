@@ -7,9 +7,26 @@ Live link: http://posthistoric.herokuapp.com/
 * [Alyssa Monera](https://github.com/alyssamonera)
 
 ## About
-(Pulled from our about page)
+
+Ready to create an epic tale?
+
+You can sign up for an account and add to the story, one sentence at a time.
+
+You can also edit/delete your sentences (only yours!) by double-clicking on them.
+
+Invite your friends!
+
+So that you can work together to create something great...or hilarious...or something in-between.
 
 ## User Stories
+* Users can add sentences to the story, one sentence at a time.
+* Users can double-click on a sentence to pop up the options to edit/delete it.
+* Users can turn to a new page of the story by clicking on the pages on the left and right side of the book.
+* Users can select which 2 pages they want to see using the index at the bottom of the page.
+* Users can read about the app by clicking the about button.
+* Users can sign up to create an account.
+* Users can log in to their account.
+* Users can log out of their account.
 
 ### Authorization
 * Users can only add to an existing chapter if they are logged in.
@@ -28,7 +45,8 @@ Live link: http://posthistoric.herokuapp.com/
 
 ## Reflections
 
-### Authorization
-**Wins:** "Making users was a lot easier this time around, since we didn't use relational models." - Alyssa
+**Wins:** 
+* "I enjoyed working with a single page, and getting creative with how to change to different views." - Aegean  
+* "Making users was a lot easier this time around, since we didn't use relational models." - Alyssa
 
 **Struggles:** "Making CSS animation that works over and over again on the same page. Also, Angular animations." -Addison

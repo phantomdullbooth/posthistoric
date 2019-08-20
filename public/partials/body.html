@@ -14,13 +14,13 @@
         </div>
 
         <!-- LEFT MAIN PAGE -->
-        <div id="left-page">
+        <div id="left-page" class="swing-in-right-bck">
             <!-- LEFT AREA WITH AUTHOR, STORY TEXT, EDIT FORM, PAGE NUMBER -->
             <div class="text-area">
 
                 <!-- AUTHOR TAG -->
                 <h2>by
-                    <span class="green">
+                    <span class="text-green">
                         {{ ctrl.stories[ctrl.currentStoryIndex].author }}
                     </span>
                 </h2>
@@ -33,7 +33,7 @@
                 <!-- EDIT SECTION -->
                 <div ng-if="currentUser.username === ctrl.stories[ctrl.currentStoryIndex].author" class="moreDetails"
                     ng-show="ctrl.indexOfEditFormToShow === $index">
-                    <h6 class="bg-black">Editing Sentence</h6>
+                    <h6 class="darkgrey">Editing Sentence</h6>
 
                     <!-- EDIT FORM -->
                     <form id="left-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex]);"
@@ -46,13 +46,13 @@
                     <!-- BUTTON GROUPING -->
                     <div class="edit-buttons">
                         <!-- UPDATE BUTTON -->
-                        <button form="left-form" type="submit" class="bg-green" value="Update">Update</button>
+                        <button form="left-form" type="submit" class="green" value="Update">Update</button>
                         <!-- HIDE FORM BUTTON -->
-                        <button class="bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                        <button class="golden" ng-click="ctrl.indexOfEditFormToShow = null">
                             Hide edit form
                         </button>
                         <!-- DELETE BUTTON -->
-                        <button class="bg-blue"
+                        <button class="blue"
                             ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex])">Delete</button>
                     </div>
 
@@ -71,11 +71,11 @@
         <!-- RIGHT MAIN PAGE -->
         <div id="right-page">
             <!-- RIGHT AREA WITH AUTHOR, STORY TEXT, EDIT FORM, PAGE NUMBER -->
-            <div class="text-area slide-in-bck-center">
+            <div class="text-area fade-in">
 
                 <!-- AUTHOR TAG -->
                 <h2>by
-                    <span class="green">
+                    <span class="text-green">
                         {{ ctrl.stories[ctrl.currentStoryIndex+1].author }}
                     </span>
                 </h2>
@@ -88,7 +88,7 @@
                 <!-- EDIT SECTION -->
                 <div ng-if="currentUser.username === ctrl.stories[ctrl.currentStoryIndex+1].author" class="moreDetails"
                     ng-show="ctrl.indexOfEditFormToShow === $index+1">
-                    <h6 class="button bg-black">Editing Sentence</h6>
+                    <h6 class="button darkgrey">Editing Sentence</h6>
 
                     <!-- EDIT FORM -->
                     <form id="right-form" ng-submit="ctrl.editStory(ctrl.stories[ctrl.currentStoryIndex+1]);"
@@ -100,13 +100,13 @@
                     <!-- BUTTON GROUPING -->
                     <div class="edit-buttons">
                         <!-- UPDATE BUTTON -->
-                        <button form="right-form" type="submit" class="bg-green" value="Update">Update</button>
+                        <button form="right-form" type="submit" class="green" value="Update">Update</button>
                         <!-- HIDE FORM BUTTON -->
-                        <button class="bg-gold" ng-click="ctrl.indexOfEditFormToShow = null">
+                        <button class="golden" ng-click="ctrl.indexOfEditFormToShow = null">
                             Hide Edit Form
                         </button>
                         <!-- DELETE BUTTON -->
-                        <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])" class="bg-blue">
+                        <button ng-click="ctrl.deleteStory(ctrl.stories[ctrl.currentStoryIndex+1])" class="blue">
                             Delete
                         </button>
                     </div>

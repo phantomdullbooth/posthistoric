@@ -1,0 +1,210 @@
+/* * {
+    border: 1px solid teal;
+} */
+
+/* ================================ */
+/* VARIABLE DEFINITIONS */
+/* ================================ */
+:root {
+    --black: #191919;
+    --blue: #005fcc;
+    --brown: #392109;
+    --dirtysun: #b18224;
+    --green: #199813;
+    --lightgrey: #484848;
+	--yellow: #edae01;
+    --white: #eeeeee;
+}
+
+/* ================================ */
+/* BACKGROUND COLORS */
+/* ================================ */
+.darkgrey {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.green {
+   background-color: var(--green);
+   color: var(--white);
+}
+
+.golden {
+    background-color: var(--yellow);
+    color: var(--black);
+}
+
+.blue {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.text-green {
+    color: var(--green);
+}
+
+.text-yellow {
+    color: var(--yellow);
+}
+
+.text-black {
+    color: var(--black);
+}
+
+/* ================================ */
+/* HEADLINES & GENERAL TEXT */
+/* ================================ */
+
+h1, h2, h3, h4, a, button, label, input {
+    font-family: "Merriweather", serif;
+    letter-spacing: -1px;
+}
+
+/* "ABOUT" */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+h2 {
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 1em;
+    color: var(--green);
+}
+
+h6 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.75em;
+    padding: 10px 15px;
+    color: var(--white);
+    border-radius: 1em;
+    cursor: pointer;
+    margin: 10px;
+}
+
+p {
+    width: 50%;
+    margin: 0 auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.5em;
+    line-height: 1.6;
+    padding: 0 10em;
+    text-align: center;
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+a:hover {
+    color: var(--yellow);
+}
+
+/* ================================ */
+/* BODY PARTS */
+/* ================================ */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: url('images/bg-wood-plant.jpg') no-repeat;
+    background-size: cover;
+}
+
+/* INCLUDES BOOK; SEE ALSO MAIN.CSS */
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    height: 65vh;
+}
+
+/* ================================ */
+/* FORMS, INPUTS & BUTTONS */
+/* ================================ */
+
+/* BUTTON STYLES + ADD COLOR CLASSES ABOVE */
+button {
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-weight: bolder;
+    text-transform: lowercase;
+}
+
+input {
+    height: 2rem;
+    width: 15rem;
+    border-radius: 5px;
+    padding: 0 20px;
+    border: 2px solid var(--black);
+    outline-color: var(--green);
+    margin: 0 15px;
+}
+
+    ::placeholder {
+        font-family: "Merriweather", serif;
+        color: var(--black);
+    }
+
+label {
+    display: none;
+}
+
+/* ================================ */
+/* MEDIA QUERY: MAX 650 */
+/* ================================ */
+
+@media screen and (max-width: 650px) {
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        text-transform: lowercase;
+    }  
+    
+    h2 {
+        font-size: 1.25em;
+        font-weight: 700;
+    }
+    
+    h3 {
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    input {
+        height: 2em;
+        width: 15em;
+        border-radius: 0.5em;
+        outline-color: var(--green);
+        padding: 0 10px;
+        font-family: "Merriweather", serif;
+        border: 2px solid var(--black);
+    }
+
+    p {
+        /* width: 50%; */
+        margin: 0 auto;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 1em;
+        line-height: 1.6;
+        padding: 0 5em;
+        text-align: center;
+    }
+}
