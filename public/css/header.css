@@ -126,4 +126,19 @@ header form {
     .break {
         display: block;
     }
+
+    .chapter-buttons{
+        display: flex;
+        justify-content: space-around;
+      }
+      
+      .chapter-buttons span{
+        display: flex;
+        justify-content: space-around;
+      }
+      
+      .chapter-buttons button{
+        width: 80px;
+        font-size: 0.5em;
+      }
 }
