@@ -45,11 +45,8 @@ So that you can work together to create something great...or hilarious...or some
 
 ## Reflections
 
-### Authorization
-**Wins:** "Making users was a lot easier this time around, since we didn't use relational models." - Alyssa
+**Wins:** 
+* "I enjoyed working with a single page, and getting creative with how to change to different views." - Aegean  
+* "Making users was a lot easier this time around, since we didn't use relational models." - Alyssa
 
-### General 
-"I enjoyed working with a single page, and getting creative with how to change to different views." - Aegean  
-
-
-**Struggles:** ""
+**Struggles:** "Making CSS animation that works over and over again on the same page. Also, Angular animations." -Addison
