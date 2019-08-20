@@ -6,9 +6,13 @@
     <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
     <button type="submit" class="green" value="add">Add</button>
   </form>
+
+  <!-- CHAR COUNTER -->
   <div ng-if="ctrl.text.length < 200">
     <b>{{200 - ctrl.text.length}}</b>
   </div>
+
+  <!-- CHAR COUNTER W/ ERROR MESSAGE -->
   <div class="char-limit-msg" ng-if="ctrl.text.length > 200">
     <b>{{200 - ctrl.text.length}}</b> Story cannot be longer than 200 characters.
   </div>
