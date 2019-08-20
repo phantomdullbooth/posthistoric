@@ -3,7 +3,7 @@
   <h2 class="footerHeader green">Add To The Story</h2>
   <form ng-submit="ctrl.createStory()">
     <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
-    <button type="submit" class="bg-green" value="add">Add</button>
+    <button type="submit" class="green" value="add">Add</button>
   </form>
   <div ng-if="ctrl.text.length < 200">
     <b>{{200 - ctrl.text.length}}</b>
