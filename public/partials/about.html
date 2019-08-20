@@ -2,17 +2,20 @@
 <div ng-show="showAbout" class="aboutSection">
   <div class="aboutHeader">
     <img class="openBook" src="css/images/openbook.png" alt="open book">
-    <h1>About PostScript</h1>
+    <h1 class="text-green">About PostScript</h1>
   </div>
   <div class="aboutContent">
-      <p class="aboutInfo">
+      <p>
       <i>Ready to create an epic tale?</i><br><br>
-      You can <strong><a class="signUpLink" href="#" ng-click="auth.toggleModal('signup')"
-      ng-if="!currentUser">sign up</a></strong> for an account and add to the story, one sentence at a time. <br><br>
-      You can also <strong class="text-green">edit/delete</strong> your sentences (<i> only yours! </i>) by double-clicking on them.<br><br>
+      <!-- ABOUT PAGE IF USER IS NOT LOGGED IN -->
+      <p ng-if="!currentUser">You can <strong><a class="text-yellow" href="#" ng-click="auth.toggleModal('signup')">sign up</a></strong> for an account and add to the story, one sentence at a time.</p>
+      <!-- ABOUT PAGE IF USER IS LOGGED IN -->
+      <p ng-if="currentUser">Now that you have an account, you can add to the story, one sentence at a time.<br>
+        <!-- SEEN BY ALL -->
+      <p>You can also <strong class="text-green">edit/delete</strong> your sentences (<i> only yours! </i>) by double-clicking on them.<br><br>
       </p>
-      <h2 class="aboutInfo text-green">Invite your friends!</h2><br>
-      <p class="aboutInfo">
+      <p class="text-green"><strong>Invite your friends!</strong></p><br>
+      <p>
       So that you can work together to create something great...or hilarious...or something in-between.
       </p>
       <a href="https://github.com/winslowdev/posthistoric"><img class="socialMedia" src="css/images/socialmedia.png" alt="social media buttons"></a>

@@ -1,15 +1,4 @@
-/* * {
-border: 1px solid #e60ea9;
-} */
 
-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 0;
-    height: 65vh;
-}
 
 #book {
     display: flex;
