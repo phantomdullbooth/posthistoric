@@ -1,0 +1,91 @@
+* {
+    border: 1px solid teal;
+}
+
+/* ================================ */
+/* VARIABLE DEFINITIONS */
+/* ================================ */
+:root {
+    --black: #191919;
+    --blue: #005fcc;
+    --brown: #392109;
+    --dirtysun: #b18224;
+    --green: #199813;
+    --lightgrey: #484848;
+	--yellow: #edae01;
+    --white: #eeeeee;
+}
+
+/* ================================ */
+/* BACKGROUND COLORS */
+/* ================================ */
+.darkgrey {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.green {
+   background-color: var(--green);
+}
+
+.golden {
+    background-color: var(--yellow);
+}
+
+.blue {
+    background-color: var(--blue);
+}
+
+.text-green {
+    color: var(--green);
+}
+
+/* ================================ */
+/* HEADLINES & GENERAL TEXT */
+/* ================================ */
+
+h1, h2, h3, h4, a, button, label {
+    font-family: "Merriweather", serif;
+    letter-spacing: -1px;
+}
+
+/* "ABOUT" */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+h2 {
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 1em;
+    color: var(--green);
+}
+
+h6 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.75em;
+    padding: 10px 15px;
+    color: var(--white);
+    border-radius: 1em;
+    cursor: pointer;
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+a:hover{
+    color: var(--yellow);
+  }
