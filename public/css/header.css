@@ -1,34 +1,33 @@
-header nav {
-  display: flex;
-  justify-content: space-around;
-  background-color: #39210966;
-  padding: 0.7em;
-  font-size: 1.4em;
-  transition-duration: 1s;
+/* ================================ */
+/* HEADER: NAVIGATION BAR */
+/* ================================ */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.7em;
+    font-size: 1.4em;
+    background-color: #39210966;
+    transition-duration: 1s;
 }
 
-header nav:hover{
-  background-color: #392109cc;
+nav:hover {
+    background-color: #392109cc;
 }
 
-nav a:hover{
-  color: var(--yellow);
+header form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1em auto;
 }
 
-header form{
-  display: block;
-  text-align: center;
-  margin: 1em auto;
-}
+/* ================================ */
+/* HEADER: CHAPTER MODAL */
+/* ================================ */
 
-header .user-greeting{
-  display: flex;
-  justify-content: flex-start;
-}
-
-/* MODAL */
-
-.my-modal{
+.my-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -39,8 +38,8 @@ header .user-greeting{
   background-color: rgba(0,0,0,0.5);
 }
 
-.modal-text{
-  background-color: white;
+.modal-text {
+  background-color: var(--white);
   padding: 1em;
   margin: 1em auto;
   height: 80vh;
@@ -67,7 +66,7 @@ header .user-greeting{
   padding: 1em 0;
   width: 100%;
   list-style-type: none;
-  font-family: 'Merriweather';
+  font-family: 'Merriweather', serif;
   font-size: 1.5em;
 }
 
@@ -101,17 +100,23 @@ header .user-greeting{
 /* .add-chapter-form{
   margin-top: 10em;
 } */
+/* ================================ */
+/* HEADER: MEDIA QUERY, MAX 650 */
+/* ================================ */
 
 @media screen and (max-width: 650px) {
+    nav {
+        font-size: 1em;
+    }
+
     header form {
-        display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        align-items: center;
+
     }
 
     header input {
-        margin: 10px auto;
+        margin: 5px auto;
     }
 
     label {
@@ -121,5 +126,4 @@ header .user-greeting{
     .break {
         display: block;
     }
-
 }

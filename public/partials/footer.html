@@ -1,7 +1,7 @@
   <h4 class="doubleClick">(Double-click your sentence to edit/delete)</h4>
 <div class="add-story" ng-class="(ctrl.text.length > 200) ? 'overlimit': ''">
   <img class="featherpen" src="css/images/featherpen.png" alt="featherpen">
-  <h2 class="footerHeader green">Add To The Story</h2>
+  <h2 class="footerHeader text-green">Add To The Story</h2>
   <form ng-submit="ctrl.createStory()">
     <input type="text" ng-model="ctrl.text" placeholder="Once upon a time..."/>
     <button type="submit" class="green" value="add">Add</button>
