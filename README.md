@@ -2,9 +2,9 @@
 Live link: http://posthistoric.herokuapp.com/
 
 ## Contributors
+* [Addison Winslow Mays](https://github.com/winslowdev)
 * [Aegean Thompson](https://github.com/aegeanthompson)
 * [Alyssa Monera](https://github.com/alyssamonera)
-* [Addison Winslow Mays](https://github.com/winslowdev)
 
 ## About
 (Pulled from our about page)
@@ -29,8 +29,6 @@ Live link: http://posthistoric.herokuapp.com/
 ## Reflections
 
 ### Authorization
-**Wins:**
-* "Making users was a lot easier this time around, since we didn't use relational models." - Alyssa
+**Wins:** "Making users was a lot easier this time around, since we didn't use relational models." - Alyssa
 
-**Struggles:**
-* "Making CSS animation that works over and over again on the same page. Also, Angular animations." -Addison
+**Struggles:** "Making CSS animation that works over and over again on the same page. Also, Angular animations." -Addison
