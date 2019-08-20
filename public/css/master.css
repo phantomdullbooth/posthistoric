@@ -47,6 +47,10 @@
     color: var(--yellow);
 }
 
+.text-black {
+    color: var(--black);
+}
+
 /* ================================ */
 /* HEADLINES & GENERAL TEXT */
 /* ================================ */
@@ -172,7 +176,17 @@ label {
         font-size: 2rem;
         text-align: center;
         text-transform: lowercase;
-    }    
+    }  
+    
+    h2 {
+        font-size: 1.25em;
+        font-weight: 700;
+    }
+    
+    h3 {
+        font-size: 1em;
+        font-weight: 300;
+    }
 
     input {
         height: 2em;

@@ -1,4 +1,6 @@
-
+/* ================================ */
+/* BOOK */
+/* ================================ */
 
 #book {
     display: flex;
@@ -13,7 +15,10 @@
     box-shadow: 0px 0px 35px -5px var(--black);
 }
 
-/* FAKE PAGES */
+/* ================================ */
+/* FAKE PAGES (LEFT & RIGHT) */
+/* ================================ */
+
 .fake-pages {
     background-color: #aeada8;
     height: 100%;
@@ -23,6 +28,15 @@
     justify-content: space-evenly;
 }
 
+.fake-line {
+    width: 5%;
+    height: 100%;
+    background-color: #9b9a96;
+}
+
+/* ================================ */
+/* CURSORS (LEFT/RIGHT IN FULL SCREEN) & SPINE */
+/* ================================ */
 .next-page {
     cursor: e-resize;
 }
@@ -31,11 +45,6 @@
     cursor: w-resize;
 }
 
-.fake-line {
-    width: 5%;
-    height: 100%;
-    background-color: #9b9a96;
-}
 
 #spine {
     width: 2px;
@@ -43,7 +52,9 @@
     background-color: #5b5a56;
 }
 
-/* BOOK SIDES */
+/* ================================ */
+/* BOOK SIDES (INCLUDES FIXED PAPER) */
+/* ================================ */
 #book-left, #book-right {
     display: flex;
     flex-direction: row;
@@ -61,7 +72,9 @@
     justify-content: flex-start;
 }
 
+/* ================================ */
 /* BOOK PAGES */
+/* ================================ */
 #left-page, #right-page {
     width: 95%;
     height: 101%;
@@ -99,9 +112,9 @@
     text-align: center;
 }
 
-
-
-/* FORM */
+/* ================================ */
+/* BOOK FORM */
+/* ================================ */
 .moreDetails {
     display: flex;
     flex-direction: column;
@@ -126,48 +139,48 @@
     padding: 20px 0;
 }
 
-    
 
-.slit-in-vertical {
-	-webkit-animation: slit-in-vertical 3s ease-out both;
-	        animation: slit-in-vertical 3s ease-out both;
+/* ================================ */
+/* ANIMATIONS (PAGE TURN & TEXT FADE IN) (NON-MOBILE ONLY) */
+/* ================================ */
+
+.swing-in-right-bck {
+    animation: swing-in-right-bck 4s cubic-bezier(0.165, 0.840, 0.440, 1.000) 1s both;
 }
 
- @-webkit-keyframes slit-in-vertical {
-    0% {
-      -webkit-transform: translateZ(-800px) rotateY(90deg);
-              transform: translateZ(-800px) rotateY(90deg);
-      opacity: 0;
-    }
-    54% {
-      -webkit-transform: translateZ(-160px) rotateY(87deg);
-              transform: translateZ(-160px) rotateY(87deg);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: translateZ(0) rotateY(0);
-              transform: translateZ(0) rotateY(0);
-    }
-  }
-  @keyframes slit-in-vertical {
-    0% {
-      -webkit-transform: translateZ(-800px) rotateY(90deg);
-              transform: translateZ(-800px) rotateY(90deg);
-      opacity: 0;
-    }
-    54% {
-      -webkit-transform: translateZ(-160px) rotateY(87deg);
-              transform: translateZ(-160px) rotateY(87deg);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: translateZ(0) rotateY(0);
-              transform: translateZ(0) rotateY(0);
-    }
-  }
-  
-  
+.fade-in {
+    animation: fade-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
+}
 
+@keyframes swing-in-right-bck {
+0% {
+    -webkit-transform: rotateY(70deg);
+            transform: rotateY(70deg);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    opacity: 0;
+}
+100% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    opacity: 1;
+}
+}
+
+@keyframes fade-in {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+
+/* ================================ */
+/* MEDIA QUERY, MAX 650 */
+/* ================================ */
 @media screen and (max-width: 650px) {
     #book {
         flex-direction : column;
@@ -248,5 +261,70 @@
     order: 3;
 }
 
+.edit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+}
+
+.swing-in-right-bck {
+    animation: swing-in-bottom-bck 4s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0.5s both;
+}
+
+.fade-in {
+    animation: fade-in 0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes swing-in-right-bck {
+    0% {
+      -webkit-transform: rotateX(-70deg);
+              transform: rotateX(-70deg);
+      -webkit-transform-origin: bottom;
+              transform-origin: bottom;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0);
+              transform: rotateX(0);
+      -webkit-transform-origin: bottom;
+              transform-origin: bottom;
+      opacity: 1;
+    }
+  }
+  @keyframes swing-in-right-bck {
+    0% {
+      -webkit-transform: rotateX(-70deg);
+              transform: rotateX(-70deg);
+      -webkit-transform-origin: bottom;
+              transform-origin: bottom;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0);
+              transform: rotateX(0);
+      -webkit-transform-origin: bottom;
+              transform-origin: bottom;
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 }
+  
